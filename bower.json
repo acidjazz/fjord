@@ -1,0 +1,21 @@
+{
+  "name": "fjord",
+  "description": "fjordlife.ca",
+  "main": "index.html",
+  "authors": [
+    "Kevin Olson"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/acidjazz/fjord",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
