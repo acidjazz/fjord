@@ -14,6 +14,14 @@ block content
 
       .copy1 Sustainable Style ~ Natural Beauty ~ Thoughtful Design
       .copy2 Be in the know and receive 10% off your first order by signing up.
-      form
-        input.text(type='text',value='Email')
-        input.submit(type='submit',value='JOIN')
+      form(
+        action="//fjordlife.us12.list-manage.com/subscribe/post?u=6a572de1881f30db3082255a6&amp;id=c8f994ff35",
+        method="post",
+        id="mc-embedded-subscribe-form",
+        name="mc-embedded-subscribe-form",
+        class="validate",
+        target="_blank"
+        novalidate)
+        input.text(type='email',name='EMAIL',placeholder='Email',id='mce-EMAIL')
+        input.submit(type='submit',value='JOIN',name='subscribe',id='mce-embedded-subscribe')
+
