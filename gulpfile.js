@@ -72,7 +72,7 @@ gulp.task('stylus', function() {
 });
 
 gulp.task('jade', function() {
-  gulp.src('tpl/**/*.jade')
+  gulp.src(['tpl/**/*.jade', '!tpl/inc/*.jade'])
     .pipe(jade({pretty: true, locals: {data: data}})
       .on('error', notify.onError(function(error) {
         return {title: "Jade error: " + error.name, message: error.message, sound: 'Pop' };

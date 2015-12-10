@@ -3,5 +3,17 @@
 extends inc/layout
 
 block content
-  header
-    .title this is a test
+  .main
+
+    .inner
+
+      .title coming soon
+
+      .logo
+        include ../pub/svg/logo.svg
+
+      .copy1 Sustainable Style ~ Natural Beauty ~ Thoughtful Design
+      .copy2 Be in the know and receive 10% off your first order by signing up.
+      form
+        input.text(type='text',value='Email')
+        input.submit(type='submit',value='JOIN')
