@@ -5,6 +5,9 @@
 # structure
 *.swp
 
+# shopify theme config
+config.yml
+
 # Dependency directory
 node_modules
 bower_components
