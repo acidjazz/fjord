@@ -1,5 +1,5 @@
-fjordlife
-=========
+fjordlife.ca
+============
 
 Sustainable Style ~ Natural Beauty ~ Thoughtful Design
 
