@@ -67,11 +67,6 @@
       
 
       
-      {% comment %}
-      <div class="social-links half column left-aligned">
-      {% include 'social-links' %}
-      </div>      
-      {% endcomment %}
       
       {% comment %}
         Note on checkout link: it is a good idea to avoid linking to /checkout directly because shops that use 
@@ -81,7 +76,6 @@
       {% endcomment %}
       
       <div class="half column right-aligned fj-cart">
-              
             
         {% if shop.customer_accounts_enabled %}
         <div class="customer-links">
@@ -101,6 +95,10 @@
         
       </div>
       
+      <div class="social-links half column right-aligned">
+      {% include 'social-links' %}
+      </div>      
+
       {% comment %}
         It would be nice if the logo was a shop setting, rather than a theme setting.
         But for now, it is a theme setting. The shop logo is uploaded on the theme settings page.

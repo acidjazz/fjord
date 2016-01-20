@@ -2,8 +2,8 @@
 vendor-prefixes ?= webkit moz o ms official
 
 @import vendor
-@import fonts
 @import mixins
+@import fonts
 @import guide
 
 body
@@ -24,20 +24,30 @@ body
     fill: c.grey2
     
 .site-header__desc 
-  font: f.copy4
+  font: f.h2
   padding 10px 0
   color: c.grey2
+  letter-spacing 1px
 
 header.row 
   > .fj-topnav, > .fj-cart
     background-color: c.grey1
-    padding 10px
-    height 54px
+    padding-bottom 0px
     > .cart-link, > .customer-links
       display inline-block
-      padding 8px
+      text-transform uppercase
+      color: c.grey2
+      font: f.copy2
+      padding 12px
     > nav
+      padding-right 0px
+      padding-left 16px
       > ul
         > li
+          padding 10px
+          &.active
+            background-color: c.white1
+        > li > a
           text-transform uppercase
           color: c.grey2
+          font: f.copy2
