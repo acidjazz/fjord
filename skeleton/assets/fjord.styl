@@ -1,0 +1,43 @@
+
+vendor-prefixes ?= webkit moz o ms official
+
+@import vendor
+@import fonts
+@import mixins
+@import guide
+
+body
+  font: f.copy1
+  background-color: c.white1
+  padding 0
+  margin 0
+
+.container
+  padding 0px
+
+.fj-header-logo 
+  display block
+  width 400px
+  height 49px
+  margin 50px auto 10px auto
+  svg > g > path
+    fill: c.grey2
+    
+.site-header__desc 
+  font: f.copy4
+  padding 10px 0
+  color: c.grey2
+
+header.row 
+  > .fj-topnav, > .fj-cart
+    background-color: c.grey1
+    padding 10px
+    height 54px
+    > .cart-link, > .customer-links
+      display inline-block
+      padding 8px
+    > nav
+      > ul
+        > li
+          text-transform uppercase
+          color: c.grey2

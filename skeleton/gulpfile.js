@@ -10,6 +10,8 @@ var shell       = require('gulp-shell');
 var filter      = require('gulp-filter');
 var watch       = require('gulp-watch');
 
+var notify = require('gulp-notify');
+
 var minimist    = require('minimist');
 
 var sourcemaps = require('gulp-sourcemaps');
@@ -44,7 +46,6 @@ gulp.task('objectus', function() {
     data = result
   });
 });
-
 
 
 gulp.task('serve', function() {
@@ -98,8 +99,6 @@ gulp.task('stylus', function() {
     }))
     .pipe(browserSync.stream());
 });
-
-
 
 gulp.task('liquid', function() {
   return gulp.src('**/*.liquid')
