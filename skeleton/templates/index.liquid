@@ -15,6 +15,27 @@
   Learn how to read theme settings in your theme.
 {% endcomment %}
 
+<div class="carousel">
+  <div class="slides">
+    <div data-slide="1" class="slide slide1 on">
+    </div>
+    <div data-slide="2" class="slide slide2 off"></div>
+    <div data-slide="3" class="slide slide3 off"></div>
+  </div>
+  <div class="nav">
+    <div class="arrow left"></div>
+    <div class="arrow right"></div>
+    <div class="dots">
+      <div class="dot dot1 on"></div>
+      <div class="dot dot2 off"></div>
+      <div class="dot dot3 off"></div>
+    </div>
+  </div>
+</div>
+
+{{ 'carousel.js' | asset_url | script_tag }}
+<script>Carousel.i();</script>
+
 {% unless settings.homepage_page == blank or pages[settings.homepage_page].empty? %}
 {% assign page = pages[settings.homepage_page] %}
 <div class="rte grid-margins">

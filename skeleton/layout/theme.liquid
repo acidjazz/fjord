@@ -46,6 +46,9 @@
 
   {{ 'option_selection.js' | shopify_asset_url | script_tag }}
 
+  <!-- fjord-related JS -->
+  {{ 'main.js' | asset_url | script_tag }}
+
   {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
   <script>jQuery('html').removeClass('no-js').addClass('js');</script>
 
@@ -95,9 +98,28 @@
         
       </div>
       
-      <div class="social-links half column right-aligned">
+      <div class="social-links whole column right">
       {% include 'social-links' %}
       </div>      
+
+      <div class="clear full column">
+      
+        {% comment %}
+          IE8 and IE9 don't support the HTML5 placeholder attribute, so it's a good idea to use JavaScript
+          to show and hide the placeholder text.
+          Have a look in assets/shop.js.liquid to see sample JavaScript for this.
+        {% endcomment %}      
+        <form action="/search" method="get" class="search-form right" role="search">
+          <input name="q" type="search" id="search-field" placeholder="Search.." value="{{ search.terms | escape }}" />
+          <label>
+            <input type="submit" id="search-submit" value="Search" />
+            <div class="search-form-submit">
+              {% include "search-svg" %}
+            </div>
+          </label>
+        </form>
+
+      </div>
 
       {% comment %}
         It would be nice if the logo was a shop setting, rather than a theme setting.
@@ -121,21 +143,7 @@
         <h1 class="hidden">{{ shop.name }}</h1>
         {% endif %}
       </div>
-      
-      <div class="clear full column">
-      
-        {% comment %}
-          IE8 and IE9 don't support the HTML5 placeholder attribute, so it's a good idea to use JavaScript
-          to show and hide the placeholder text.
-          Have a look in assets/shop.js.liquid to see sample JavaScript for this.
-        {% endcomment %}      
-        <form action="/search" method="get" class="search-form right" role="search">
-          <input name="q" type="search" id="search-field" placeholder="Search store..." value="{{ search.terms | escape }}" />
-          <input type="submit" id="search-submit" value="Search" />
-        </form>
-
-      </div>
-      
+     
     </header>
 
     <div id="main" role="main">

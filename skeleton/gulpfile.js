@@ -11,6 +11,7 @@ var filter      = require('gulp-filter');
 var watch       = require('gulp-watch');
 
 var notify = require('gulp-notify');
+var coffee = require('gulp-coffee');
 
 var minimist    = require('minimist');
 
@@ -60,7 +61,8 @@ gulp.task('serve', function() {
   gulp.watch('../dat/**/*', ['objectus','stylus']);
   gulp.watch("assets/*.scss", ['sass']);
   gulp.watch("assets/*.otf", ['fonts']);
-  gulp.watch("assets/*.styl", ['objectus', 'stylus']);
+  gulp.watch("sty/*.styl", ['objectus', 'stylus']);
+  gulp.watch("cof/*.coffee", ['objectus', 'coffee']);
 });
 
 
@@ -98,11 +100,33 @@ gulp.task('sass', function() {
     .pipe(browserSync.stream());
 });
 
+gulp.task('coffee', function() {
+  gulp.src('cof/**/*.coffee')
+    .pipe(sourcemaps.init())
+    .pipe(coffee({bare: true})
+      .on('error', notify.onError(function(error) {
+        return {title: "Coffee error", message: error.message + "\r\n" + error.filename + ':' + error.location.first_line, sound: 'Pop'};
+      }))
+    )
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('assets'))
+    .pipe(shell([
+      'theme upload <%= f(file.path) %>'
+    ], {
+      templateData: {
+        f: function (s) {
+          // cut away absolute path of working dir for 'theme' cmd to work
+          return s.replace(process.cwd() + '/', '')
+        }
+      }
+    }))
+    .pipe(browserSync.stream());
+});
 
 
 // Compile stylus into CSS & auto-inject into browsers
 gulp.task('stylus', function() {
-  return gulp.src("assets/fjord.styl")
+  return gulp.src("sty/fjord.styl")
     .pipe(sourcemaps.init())
     .pipe(stylus({ rawDefine: { data: data } }))
     .pipe(sourcemaps.write())
