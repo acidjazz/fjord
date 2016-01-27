@@ -1,0 +1,24 @@
+
+vendor-prefixes ?= webkit moz o ms official
+
+@import vendor
+@import fonts
+@import mixins
+@import guide
+
+body
+  font: f.copy1
+
+.test
+  background-color #00ff00
+  padding 10px 20px
+
+.site-header__logo 
+  width 400px
+  height 49px
+  margin auto
+  a > svg > g > path
+    fill: c.grey1
+    
+.site-header__desc 
+  font: f.copy2

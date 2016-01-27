@@ -1,0 +1,33 @@
+desktop()
+  max-width 1020px
+  margin auto
+
+clearfix()
+  &:before
+  &:after
+    content: ""
+    display: table
+  &:after
+    clear: both
+  zoom: 1 if support-for-ie
+
+fontfaces(fonts, exts)
+
+  for font in fonts
+    @font-face
+      font-family font
+      for ext in exts
+        if ext == 'eot'
+          src url(font.eot) format('embedded-opentype')
+
+        if ext == 'otf'
+          src url(font.otf) format('opentype')
+
+        if ext == 'ttf'
+          src url(font.ttf) format('truetype')
+        if ext == 'svg'
+          src url(font.svg) format('svg')
+        if ext == 'woff'
+          src url(font.woff) format('woff')
+      font-weight normal
+      font-style normal
