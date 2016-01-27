@@ -1,0 +1,32 @@
+{% comment %}
+Re-use the 'rte' class wherever you output content that was added by a merchant using
+the Rich Text Editor ( 'rte' stands for rich text editor ).
+Style all HTML elements in that content the same way across the board.
+Use the 'rte' class in your CSS to help maintain that consistency.
+Example: the h2 element should have the same size and color in:
+- product descriptions
+- collection descriptions
+- 'page' pages' content
+- blog post
+{% endcomment %}
+
+<div class="designer-page">
+
+  <header>
+    <div class="titles">
+      <div class="titleA">Apparel Brand</div>
+      <div class="titleB">{{ page.title }}</div>
+      <div class="titleC">Designer Spotlight</div>
+    </div>
+  </header>
+
+  <div class="rte">
+    This is the top of a page template, variables<br />
+    current_page {{ current_page }}<br />
+    page_title {{ page_title }}<br />
+    template {{ template }}<br />
+    theme {{ theme }}<br />
+    {{ page.content }}
+  </div>
+
+</div>

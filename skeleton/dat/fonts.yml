@@ -1,6 +1,9 @@
 ---
 h1: 62px averta thin
 h2: 20pt fnt_bauer_roman
+h3: 30pt fnt_bauer_italic
+h4: 70pt fnt_bauer_italic
+h5: 22pt fnt_averta_regular
 copy1: 11pt fnt_averta_regular
 copy2: 8pt fnt_averta_semibold
 copy3: 20px fnt_bauer_roman 

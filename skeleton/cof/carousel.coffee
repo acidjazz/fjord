@@ -11,25 +11,31 @@ Carousel =
 
   handlers: ->
     $('.carousel > .nav > .arrow').on 'click', Carousel.arrowHandler
+    $('.carousel > .nav > .dots > .dot').on 'click', Carousel.dotHandler
 
   arrowHandler: ->
     Carousel.arrow $(this).hasClass('right')
 
+  dotHandler: ->
+
+    Carousel.sliden = $(this).data 'dot'
+    Carousel.slide $(this).data 'dot'
+
   arrow: (direction) ->
     if direction
       if Carousel.sliden is Carousel.slides
-        Carousel.sliden = 1
+        Carousel.slide 1
       else
-        Carousel.sliden++
+        Carousel.slide Carousel.sliden+1
     else
       if Carousel.sliden is 1
-        Carousel.sliden = Carousel.slides
+        Carousel.slide Carousel.slides
       else
-        Carousel.sliden--
-
-    Carousel.slide Carousel.sliden
+        Carousel.slide Carousel.sliden-1
 
   slide: (num) ->
+
+    Carousel.sliden = num
 
     _.off '.carousel > .slides > .slide'
     _.off '.carousel > .nav > .dots > .dot'
