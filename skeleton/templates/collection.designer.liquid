@@ -24,9 +24,11 @@
 {% endcomment %}
 
 <div id="header" style="background:url('{{ collection.image.src | img_url: 'original' }}')">
-<h2>APPAREL BRAND</h2>
-<h1>{{ collection.title }}</h1>
-<h3>DESIGNER SPOTLIGHT</h3>
+  <div class="header_copy">
+    <h2>APPAREL BRAND</h2>
+    <h1>{{ collection.title }}</h1>
+    <h3>DESIGNER SPOTLIGHT</h3>
+  </div>
 </div>
 <h2>Meet the ladies behind</h2><h1>{{ collection.title }}</h1>
 
@@ -68,7 +70,7 @@
 <div id="products_header">LIKE WHAT YOU HEAR? SHOP THE CAUSE</div>
 <ul class="grid clearfix">
 {% for product in collection.products %}
-  {% include 'product-grid-item' with products_per_row %}
+  {% include 'designer-product-grid-item' with products_per_row %}
 {% else %}
   <p>There are no products in this view.</p>
 {% endfor %}

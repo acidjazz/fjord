@@ -1,14 +1,23 @@
 body.template-collection
   > .container
-    background-color yellow
     > #main
-      background-color red
-      > #header, #products_header
+      > #products_header
         text-align center
+        font: f.h3
+      > #header
+        background-size cover
+        height 350px
+        text-align center
+        color: c.white1
+        > .header_copy
+          position relative
+          top 50%
+          transform translateY(-50%)
       h2
-        font: f.h2
+        font: f.h3
       h1
-        font: f.h1
+        font: f.h4
+        text-transform uppercase
       > .rte
         > p
           display none 
@@ -16,5 +25,14 @@ body.template-collection
           width 50%
           float left
           > tbody
-            > tr > td
-              vertical-align top
+            > tr
+              border 0
+              > td
+                color: c.grey2
+                vertical-align top
+      .prod-caption
+        color: c.grey2
+        text-transform uppercase
+        text-align left
+        > .col-title
+          font: f.h2
