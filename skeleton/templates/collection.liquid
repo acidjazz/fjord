@@ -23,24 +23,6 @@
   - blog post
 {% endcomment %}
 
-<h1 class="left">{{ collection.title }}</h1>
-
-{% comment %}
-  Collection sorting. Needs the JavaScript that is at the bottom of this file.
-{% endcomment %}
-{% if collection.products_count > 1 %}
-<select class="sort-by right">
-  <option value="manual">Featured</option>
-  <option value="price-ascending">Price: Low to High</option>
-  <option value="price-descending">Price: Hight to Low</option>
-  <option value="title-ascending">A-Z</option>
-  <option value="title-descending">Z-A</option>
-  <option value="created-ascending">Oldest to Newest</option>
-  <option value="created-descending">Newest to Oldest</option>
-  <option value="best-selling">Best Selling</option>
- </select>
-{% endif %}
-
 {% comment %}
   Listing all tags within the current collection.
   Shopify uses product tags to manage subcategories inside collections.
@@ -73,13 +55,30 @@
 </div>
 {% endif %}
 
-<ul class="grid clearfix">
-{% for product in collection.products %}
-  {% include 'product-grid-item' with products_per_row %}
-{% else %}
-  <p>There are no products in this view.</p>
-{% endfor %}
-</ul>
+<div class="side-nav">
+  <h3>CATEGORY</h3>
+  <ul>
+  {% for link in linklists.category.links %}
+    <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+  {% endfor %}
+  </ul>
+
+  <h3>BRAND</h3>
+  <ul>
+  {% for link in linklists.brands.links %}
+    <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+  {% endfor %}
+  </ul>
+</div>
+<div class="left product-grid">
+  <ul class="grid clearfix">
+  {% for product in collection.products %}
+    {% include 'product-grid-item' with products_per_row %}
+  {% else %}
+    <p>There are no products in this view.</p>
+  {% endfor %}
+  </ul>
+</div>
 
 {% if paginate.pages > 1 %}
 <div class="pagination centered">

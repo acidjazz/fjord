@@ -29,16 +29,21 @@ Here, for the sake of teaching, we will use 2 presentation options:
   </div><!-- .prod-image-wrap -->
   
   <div class="prod-caption">
-      <a href="{{ product.url | within: collection }}">
-        {{ product.title }}
-      </a>
-      <span class="prod-price">
+      <div class="col-title">
+        {{ collection.title }}
+      </div>
+      <div class="prod-title">
+        <a href="{{ product.url | within: collection }}">
+          {{ product.title }}
+        </a>
+      </div>
+      <div class="prod-price">
         {% if product.price_varies %}From{% endif %}
         {{ product.price | money }}
         {% if on_sale %}
         <s class="compare-at-price">{{ product.compare_at_price | money }}</s>
         {% endif %}
-      </span>
+      </div>
       {% comment %}
         All themes by Shopify should support the Product Reviews app out of the box.
         https://apps.shopify.com/product-reviews
