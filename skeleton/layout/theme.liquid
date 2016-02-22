@@ -60,7 +60,7 @@
 
     <header class="row">
  
-      <div class="clear half column left-aligned fj-topnav">
+      <div class="clear column left-aligned fj-topnav">
       
         {% comment %}
           Main Navigation 
@@ -78,17 +78,14 @@
         of Google Analytics may not work if linking directly to the /checkout page.
       {% endcomment %}
       
-      <div class="half column right-aligned fj-cart">
+      <div class="column right-aligned fj-cart">
             
         {% if shop.customer_accounts_enabled %}
         <div class="customer-links">
           {% if customer %}
             Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
           {% else %}
-            {{ 'Log in' | customer_login_link }}
-            {% if shop.customer_accounts_optional %}
-            or {{ 'Create an account' | customer_register_link }}
-            {% endif %}
+            {{ 'Login' | customer_login_link }}/{{ 'Register' | customer_register_link }}
           {% endif %}
         </div>
         {% endif %}
@@ -154,7 +151,7 @@
       {{ content_for_layout }}
     </div>
 
-    <footer>
+    <!--<footer>
   
       {% if linklists.footer.links.size > 0 %}
       <p role="navigation">
@@ -174,6 +171,44 @@
       
       <p role="contentinfo" class="small-print">Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. {{ powered_by_link }}.</p>
 
+    </footer>-->
+    
+    <footer>
+      <div>
+        <div class="left">
+          <h6>ABOUT</h6>
+          <ul>
+            <li><a href="#">What is Fjordlife</a></li>
+            <li><a href="#">Fjordlife Partners With</a></li>
+          </ul>
+          </div>
+        <div class="left">
+          <h6>FIND US</h6>
+          <ul>
+            <li><a href="#">Affiliate Program</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="left">
+          <h6>HELP</h6>
+          <ul>
+            <li><a href="#">Shipping & Processing</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Get fitted</a></li>
+          </ul>
+        </div>
+        <div class="left">
+          <h6>POLICIES</h6>
+          <ul>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="clear copyright">
+      &copy; 2016 FJORDLIFE<br /><span class="footer-small">SITE BY DESIGNSAKE STUDIO</span>
+      </div>
     </footer>
 
     {% comment %}Shopify does not support Internet Explorer 6 nor 7. It does encourage themes to support IE8 until the end of 2014.{% endcomment %}

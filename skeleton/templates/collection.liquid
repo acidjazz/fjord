@@ -56,37 +56,48 @@
 {% endif %}
 
 <div class="side-nav">
-  <h3>CATEGORY</h3>
+  <h2>CATEGORY</h2>
   <ul>
   {% for link in linklists.category.links %}
     <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
   {% endfor %}
   </ul>
 
-  <h3>BRAND</h3>
+  <h2>BRAND</h2>
   <ul>
   {% for link in linklists.brands.links %}
     <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
   {% endfor %}
   </ul>
 </div>
-<div class="left product-grid">
+<div class="left">
+  <div class="product-grid">
+    <ul class="grid clearfix">
+    {% for product in collection.products %}
+      {% include 'product-grid-item' with products_per_row %}
+    {% else %}
+      <p>There are no products in this view.</p>
+    {% endfor %}
+    </ul>
+  </div>
+
+  {% if paginate.pages > 1 %}
+  <div class="pagination centered">
+    {{ paginate | default_pagination }}
+  </div>
+  {% endif %}
+
+  {% endpaginate %}
+
+  <h7>OTHER PRODUCTS <br> YOU MIGHT LIKE</h7>
   <ul class="grid clearfix">
-  {% for product in collection.products %}
-    {% include 'product-grid-item' with products_per_row %}
+  {% for product in collections.featured.products limit:3 %}
+    {% include 'product-grid-item' with 3 %}
   {% else %}
     <p>There are no products in this view.</p>
   {% endfor %}
   </ul>
 </div>
-
-{% if paginate.pages > 1 %}
-<div class="pagination centered">
-  {{ paginate | default_pagination }}
-</div>
-{% endif %}
-
-{% endpaginate %}
 
 {% comment %}
   JavaScript for collection sorting.

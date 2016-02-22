@@ -9,13 +9,26 @@
   - blog posts
 {% endcomment %}
 
-{% comment %}
+{% comment %} 
   Very important reading:
   http://docs.shopify.com/themes/liquid-basics/what-is-true-and-false-in-liquid
   Learn how to read theme settings in your theme.
 {% endcomment %}
 
+{% assign products_per_page = settings.products_per_row | times: settings.number_of_rows %}
+{% assign numbers = 'zero, one, two, three, four, five, six' | split: ',' %}
+{% assign products_per_row = '2' | times: 1 %}
+{% assign products_per_row = numbers[products_per_row] | strip | append: '-per-row' %}
+{% assign disable_product_copy = true %}
+
+
 <div class="carousel">
+  <div class="carousel-copy">
+    <h1>Welcome</h1>
+    <p>Fjordlife is a womenswear and clean beauty brand. We source the globe for beautiful, innovative products with meaningful impact and aim to show you the stories behind them.</p>
+    <p>READ MORE</p>
+  </div>
+  
   <div class="slides">
     <div data-slide="1" class="slide slide1 on">
     </div>
@@ -36,25 +49,72 @@
 {{ 'carousel.js' | asset_url | script_tag }}
 <script>Carousel.i();</script>
 
-{% unless settings.homepage_page == blank or pages[settings.homepage_page].empty? %}
-{% assign page = pages[settings.homepage_page] %}
-<div class="rte grid-margins">
-  {{ page.content }}
+<div class="col1 col"> 
+  <div class="discover block">
+    <h2>{{ blogs.home.articles[3].title }}</h2>
+    <div class="content">
+      <img src="{{ blogs.home.articles[3] | img_url: 'original' }}">
+      {{ blogs.home.articles[3].content }}
+    </div>
+  </div>
+  <div class="clean-beauty block">
+    <h2>{{ blogs.home.articles[2].title }}</h2>
+    <div class="content">
+      <img src="{{ blogs.home.articles[2] | img_url: 'original' }}">
+      {{ blogs.home.articles[2].content }}
+    </div>
+  </div>
 </div>
-{% endunless %}
 
-{% unless settings.homepage_collection == blank or collections[settings.homepage_collection].empty? %}
-{% assign collection = collections[settings.homepage_collection] %}
-<ul class="grid clearfix">
-{% for product in collection.products %}
-  {% include 'product-grid-item' with 'three-per-row' %}
-{% else %}
-<li>
-  <p>
-    You have no products in your {{ collections[settings.homepage_collection].title }} collection. 
-    <a href="http://www.shopify.com/admin/collections">Add some.</a>
-  <p>
-</li>
-{% endfor %}
-</ul>
-{% endunless %}
+<div class="col2 col">
+  <div class="shop block">
+    <h2>{{ blogs.home.articles[1].title }}</h2>
+    <div class="content">
+      <img src="{{ blogs.home.articles[1] | img_url: 'original' }}">
+      {{ blogs.home.articles[1].content }}
+    </div>
+  </div>
+  <div class="learn block">
+    <h2>{{ blogs.home.articles[0].title }}</h2>
+    <div class="content">
+      <img src="{{ blogs.home.articles[0] | img_url: 'original' }}">
+      {{ blogs.home.articles[0].content }}
+    </div>
+  </div>
+</div>
+
+<div class="col3 col">
+  <div class="shop-favorites block">
+    <h2>SHOP OUR FAVORITES</h2>
+    <ul class="grid clearfix">
+    {% for product in collections.featured.products limit:4 %}
+      {% include 'product-grid-item' with products_per_row %}
+    {% else %}
+      <p>There are no products in this view.</p>
+    {% endfor %}
+    </ul>
+  </div>
+  <hr />
+  <div class="blog block">
+    <h2>FJORDLIFE BLOG</h2>
+    <div> 
+      {% for article in blogs.news.articles limit:3 %}
+      <div class="clear">
+          <div class="left">
+            <img src="{{ article | img_url: 'small' }}">
+          </div>
+          <p>
+            {{ article.title }}
+          </p>
+          <p>
+            <a href="{{ article.url }}">READ MORE</a>
+          </p>
+          
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+

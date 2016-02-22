@@ -27,11 +27,11 @@ Here, for the sake of teaching, we will use 2 presentation options:
       <img src="{{ product | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" />
     </a>
   </div><!-- .prod-image-wrap -->
-  
+  {% if disable_product_copy != true %}
   <div class="prod-caption">
-      <div class="col-title">
+      <h6 class="col-title">
         {{ product.vendor }}
-      </div>
+      </h6>
       <div class="prod-title">
         <a href="{{ product.url | within: collection }}">
           {{ product.title }}
@@ -50,7 +50,7 @@ Here, for the sake of teaching, we will use 2 presentation options:
       {% endcomment %}
       <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
   </div><!-- .prod-caption -->
-  
+  {% endif %}
 </li>
 
 {% comment %}

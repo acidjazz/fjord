@@ -7,14 +7,54 @@ vendor-prefixes ?= webkit moz o ms official
 @import guide
 
 body
+  letter-spacing 2px
   font: f.copy1
   background-color: c.white1
   padding 0
   margin 0
+  line-height 18px
 
+h1
+  font: f.h1
+  margin 0
+h2
+  font: f.h2
+  letter-spacing 3px
+  margin 0
+h3
+  font: f.h3
+  margin 0
+h4
+  font: f.h4
+  margin 0
+h5
+  font: f.h5
+  margin 0
+h6
+  letter-spacing 3px
+  margin 0
+h7
+  font: f.h7
+  letter-spacing 3px
+  margin 0
+  
+footer 
+  color: c.grey2
+  text-align left
+  a
+    color: c.grey2
+  > .copyright
+    > .footer-small
+      font: f.copy7
+    
 .container
   padding 0px
 
+.fj-topnav
+  width 60%
+.fj-cart
+  width 40%
+  
 .fj-header-logo 
   display block
   width 400px
@@ -72,6 +112,8 @@ header.row
           font: f.copy2
 
 @import carousel
+
+@import home
 
 .designer-page
   > header

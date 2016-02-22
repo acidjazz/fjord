@@ -4,10 +4,12 @@ h2: 20pt fnt_bauer_roman
 h3: 30pt fnt_bauer_italic
 h4: 70pt fnt_bauer_italic
 h5: 22pt fnt_averta_regular
-h6: 11pt fnt_bauer_bold
-copy1: 11pt fnt_averta_regular
+h6: 9pt fnt_bauer_bold
+h7: 20pt fnt_bauer_italic
+copy1: 9pt fnt_averta_regular
 copy2: 8pt fnt_averta_semibold
 copy3: 20px fnt_bauer_roman 
 copy4: 25px fnt_averta_semibold
-copy5: 11pt fnt_averta_thin
-copy6: 11pt fnt_averta_semibold
+copy5: 9pt fnt_averta_thin
+copy6: 9pt fnt_averta_semibold
+copy7: 7pt fnt_averta_regular
