@@ -1,0 +1,15 @@
+<div class="side-nav">
+  <h8 class="sidebar-header">CATEGORY</h8>
+  <ul>
+  {% for link in linklists.category.links %}
+    <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+  {% endfor %}
+  </ul>
+
+  <h8 class="sidebar-header">BRAND</h8>
+  <ul>
+  {% for link in linklists.brands.links %}
+    <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+  {% endfor %}
+  </ul>
+</div>

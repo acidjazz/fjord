@@ -30,51 +30,28 @@
     <h5>DESIGNER SPOTLIGHT</h5>
   </div>
 </div>
-<h2>Meet the ladies behind</h2><h1>{{ collection.title }}</h1>
-
-{% comment %}
-  Collection sorting. Needs the JavaScript that is at the bottom of this file.
-{% endcomment %}
- </select>
-{% comment %}
-  Listing all tags within the current collection.
-  Shopify uses product tags to manage subcategories inside collections.
-  See 'How do I create subcategories of products?' at 
-  http://bit.ly/1j1Dti4 for details.
-{% endcomment %}
-
-{% if collection.all_tags.size > 0 %}
-<ul class="subcategories clearfix clear">
-  <li class="{% unless current_tags %} active{% endunless %}">
-    {{ 'All' | link_to_remove_tag: current_tags.first }}
-  </li>
-  {% for tag in collection.all_tags %}
-  {% if current_tags contains tag %}
-  <li class="active">
-    {{ tag | link_to_remove_tag: tag }}
-  </li>
-  {% else %}
-  <li>
-    {{ tag | link_to_tag: tag }}
-  </li>
-  {% endif %}
-  {% endfor %}  
-</ul>
-{% endif %}
 
 {% if collection.description.size > 0 %}
 <div class="rte clearfix">
+  <div class="collection-desc-header">
+    <h2>Meet the ladies behind</h2>
+    <h1>{{ collection.title }}</h1>
+  </div>
   {{ collection.description }}
 </div>
 {% endif %}
-<div id="products_header">LIKE WHAT YOU HEAR? SHOP THE CAUSE</div>
-<ul class="grid clearfix">
-{% for product in collection.products %}
-  {% include 'product-grid-item' with products_per_row %}
-{% else %}
-  <p>There are no products in this view.</p>
-{% endfor %}
-</ul>
+<div class="recommendations">
+  <h7>LIKE WHAT YOU HEAR? SHOP THE CAUSE</h7>
+  <ul class="grid clearfix">
+  {% for product in collection.products %}
+    {% include 'product-grid-item' with products_per_row %}
+  {% else %}
+    <p>There are no products in this view.</p>
+  {% endfor %}
+  </ul>
+</div>
+
+{% include 'instagram' %}
 
 {% if paginate.pages > 1 %}
 <div class="pagination centered">

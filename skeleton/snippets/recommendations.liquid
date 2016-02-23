@@ -1,0 +1,12 @@
+<div class="recommendations">
+  <h7 class="other-products">OTHER PRODUCTS <br> YOU MIGHT LIKE</h7>
+  <div class="product-grid">
+    <ul class="grid clearfix">
+    {% for product in collections.featured.products limit:3 %}
+      {% include 'featured-product-grid-item' with products_per_row %}
+    {% else %}
+      <p>There are no products in this view.</p>
+    {% endfor %}
+    </ul>
+  </div>
+</div>

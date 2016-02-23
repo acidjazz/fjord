@@ -24,9 +24,10 @@
 
 <div class="carousel">
   <div class="carousel-copy">
-    <h1>Welcome</h1>
-    <p>Fjordlife is a womenswear and clean beauty brand. We source the globe for beautiful, innovative products with meaningful impact and aim to show you the stories behind them.</p>
-    <p>READ MORE</p>
+    <h10>Welcome</h10>
+    <h11>Fjordlife is a womenswear and clean beauty brand. We source the globe for beautiful, innovative products with meaningful impact and aim to show you the stories behind them.</h11>
+    <br><br>
+    <h11>READ MORE</h11>
   </div>
   
   <div class="slides">
@@ -85,23 +86,25 @@
 
 <div class="col3 col">
   <div class="shop-favorites block">
-    <h2>SHOP OUR FAVORITES</h2>
-    <ul class="grid clearfix">
-    {% for product in collections.featured.products limit:4 %}
-      {% include 'product-grid-item' with products_per_row %}
-    {% else %}
-      <p>There are no products in this view.</p>
-    {% endfor %}
-    </ul>
+    <h8>SHOP OUR <br> FAVORITES</h8>
+    <div class="col3-content">
+      <ul class="grid clearfix">
+      {% for product in collections.featured.products limit:4 %}
+        {% include 'product-grid-item' with products_per_row %}
+      {% else %}
+        <p>There are no products in this view.</p>
+      {% endfor %}
+      </ul>
+    </div>
   </div>
   <hr />
   <div class="blog block">
-    <h2>FJORDLIFE BLOG</h2>
-    <div> 
-      {% for article in blogs.news.articles limit:3 %}
-      <div class="clear">
-          <div class="left">
-            <img src="{{ article | img_url: 'small' }}">
+    <h8>FJORDLIFE <br> BLOG</h8>
+    <div class="col3-content"> 
+      {% for article in blogs.news.articles limit:2 %}
+      <div class="article">
+          <div class="left blog-img">
+            <img src="{{ article | img_url: 'large' }}">
           </div>
           <p>
             {{ article.title }}
@@ -109,12 +112,13 @@
           <p>
             <a href="{{ article.url }}">READ MORE</a>
           </p>
-          
+          <div class="clear"></div>
       </div>
       {% endfor %}
     </div>
   </div>
 </div>
 
+{% include 'instagram' %}
 
 

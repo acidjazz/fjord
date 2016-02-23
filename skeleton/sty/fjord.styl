@@ -7,12 +7,13 @@ vendor-prefixes ?= webkit moz o ms official
 @import guide
 
 body
-  letter-spacing 2px
+  letter-spacing 1px
   font: f.copy1
   background-color: c.white1
   padding 0
   margin 0
-  line-height 18px
+  line-height 25px
+  color: c.grey2
 
 h1
   font: f.h1
@@ -30,13 +31,45 @@ h4
 h5
   font: f.h5
   margin 0
-h6
+h6 
   letter-spacing 3px
   margin 0
 h7
+  display block
   font: f.h7
   letter-spacing 3px
   margin 0
+  
+h8, .h8
+  display block
+  font: f.h8
+  letter-spacing 2px
+  margin 0 
+
+h10
+  display block
+  font: f.h10
+  letter-spacing 3px
+  margin 0
+h11
+  display block
+  font: f.h11
+  letter-spacing 1px
+  line-height 40px
+  margin 0
+h12
+  display block
+  font: f.h12
+  letter-spacing 1px
+  margin 0 
+h14
+  display block
+  font: f.h14
+  letter-spacing 1px
+  margin 0
+    
+.copy8
+  font: f.copy8
   
 footer 
   color: c.grey2
@@ -52,8 +85,10 @@ footer
 
 .fj-topnav
   width 60%
+  height 45px
 .fj-cart
   width 40%
+  height 45px
   
 .fj-header-logo 
   display block
@@ -139,13 +174,18 @@ header.row
         font: f.h5
 
 @import designer
-
+.recommendations
+  clear both
+  
 .prod-image-wrap
+        height 176px
+        min-width 176px
+        overflow hidden
         text-align left
         > a > img
-          width 150px
-          height 150px
+          width 176px
       .prod-caption
+        padding-top 10px
         font: f.copy5
         color: c.grey2
         text-transform uppercase
@@ -156,3 +196,4 @@ header.row
           color: c.grey2
 
 @import catalog
+@import product

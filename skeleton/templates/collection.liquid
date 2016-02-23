@@ -30,6 +30,7 @@
   http://bit.ly/1j1Dti4 for details.
 {% endcomment %}
 
+<!--
 {% if collection.all_tags.size > 0 %}
 <ul class="subcategories clearfix clear">
   <li class="{% unless current_tags %} active{% endunless %}">
@@ -54,23 +55,10 @@
   {{ collection.description }}
 </div>
 {% endif %}
-
-<div class="side-nav">
-  <h2>CATEGORY</h2>
-  <ul>
-  {% for link in linklists.category.links %}
-    <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
-  {% endfor %}
-  </ul>
-
-  <h2>BRAND</h2>
-  <ul>
-  {% for link in linklists.brands.links %}
-    <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
-  {% endfor %}
-  </ul>
-</div>
-<div class="left">
+-->
+<div class="padding"></div>
+{% include 'side-nav' %}
+<div class="left-col">
   <div class="product-grid">
     <ul class="grid clearfix">
     {% for product in collection.products %}
@@ -88,16 +76,11 @@
   {% endif %}
 
   {% endpaginate %}
-
-  <h7>OTHER PRODUCTS <br> YOU MIGHT LIKE</h7>
-  <ul class="grid clearfix">
-  {% for product in collections.featured.products limit:3 %}
-    {% include 'product-grid-item' with 3 %}
-  {% else %}
-    <p>There are no products in this view.</p>
-  {% endfor %}
-  </ul>
+  
+  {% include 'recommendations' %}
 </div>
+
+{% include 'instagram' %}
 
 {% comment %}
   JavaScript for collection sorting.
