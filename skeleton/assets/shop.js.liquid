@@ -7,6 +7,7 @@ var switchImage = function(newImageSrc, newImage, mainImageDomEl) {
   // mainImageDomEl is the passed domElement, which has not yet been manipulated. Let's manipulate it now.
   jQuery(mainImageDomEl).parents('a').attr('href', newImageSrc.replace('_grande', '_1024x1024'));
   jQuery(mainImageDomEl).attr('src', newImageSrc);  
+  jQuery(mainImageDomEl).data('zoom-image', newImageSrc.replace('_grande', '_1024x1024')).elevateZoom();
 };
 
 jQuery(function($) {
