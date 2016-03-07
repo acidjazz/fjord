@@ -20,21 +20,23 @@
 {% assign products_per_row = '2' | times: 1 %}
 {% assign products_per_row = numbers[products_per_row] | strip | append: '-per-row' %}
 {% assign disable_product_copy = true %}
-
+{% assign n = 1 %}
 
 <div class="carousel">
-  <div class="carousel-copy">
-    <h10>Welcome</h10>
-    <h11>Fjordlife is a womenswear and clean beauty brand. We source the globe for beautiful, innovative products with meaningful impact and aim to show you the stories behind them.</h11>
-    <br>
-    <h11>READ MORE</h11>
-  </div>
-  
   <div class="slides">
-    <div data-slide="1" class="slide slide1 on">
-    </div>
-    <div data-slide="2" class="slide slide2 off"></div>
-    <div data-slide="3" class="slide slide3 off"></div>
+    {% for article in blogs.carousel.articles %}
+        <div data-slide="{{ n }}" style="background-image:url('{{ article | img_url: 'original' }}')" class="slide slide{{ n }} {% if n == 1 %} on {% else %} off {% endif %}">
+          <div class="carousel-copy">
+            <h10>{{ article.title }}</h10>
+            <h11>
+              {{ article.content }}
+            </h11>
+          </div>
+        </div>
+        {% assign n = n | plus: 1 %}
+        
+    {% endfor %}
+
   </div>
   <div class="nav">
     <div class="arrow left"></div>

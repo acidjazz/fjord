@@ -16,7 +16,7 @@
     {% assign parent_link_active = false %}
     {% assign child_list_handle = link.title | handle %}
     {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
-      {% assign has_sub_menu = false %}
+      {% assign has_sub_menu = true %}
       {% for l in linklists[child_list_handle].links %}
         {% if handle != blank and handle == l.object.handle %}
           {% assign parent_link_active = true %}

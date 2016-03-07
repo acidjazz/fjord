@@ -9,6 +9,10 @@
 {% assign products_per_row = settings.products_per_row | times: 1 %}
 {% assign products_per_row = numbers[products_per_row] | strip | append: '-per-row' %}
 
+<div id="header" style="background-image:url('{{ collection.image.src | img_url: 'original' }}')">
+  
+</div>
+
 {% paginate collection.products by products_per_page %}
 
 {% comment %}
