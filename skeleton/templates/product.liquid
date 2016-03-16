@@ -2,6 +2,10 @@
 {% assign sold_out = 'Sold Out' %}
 {% assign unavailable = 'Unavailable' %}
 
+{% assign numbers = 'zero, one, two, three, four, five, six' | split: ',' %}
+{% assign products_per_row = settings.products_per_row | times: 1 %}
+{% assign products_per_row = numbers[products_per_row] | strip | append: '-per-row' %}
+
 <div class="padding"></div>
 {% include 'side-nav' %}
 <div class="left-col">
@@ -81,7 +85,8 @@
         <div id="product-description" class="rte" itemprop="description">
           {{ product.description }}
         </div>
-      
+        <div><a id="readmore" href="#">Read More</a></div>
+        <div><a id="readless" href="#">Read Less</a></div>
         {% comment %}
           All themes by Shopify should support the Product Reviews app out of the box.
           https://apps.shopify.com/product-reviews
@@ -128,9 +133,9 @@
       </div><!-- .product-details -->
 
     </form>
-    <div class="hr"></div>
-    {% include 'recommendations' %}
   </div>
+  <div class="hr"></div>
+  {% include 'recommendations' %}
 </div>
 
 
@@ -202,6 +207,6 @@ jQuery(function($) {
 Shopify.Image.preload({{ product.images | json }}, 'grande');
 Shopify.Image.preload({{ product.images | json }}, '1024x1024');
 
-jQuery("img[data-zoom-image]").elevateZoom();
+jQuery("img[data-zoom-image]").elevateZoom({ zoomType	: "inner", cursor: "crosshair" });
 
 </script>

@@ -1,0 +1,15 @@
+<div class="help">
+  <div class="side-nav">
+    <h8 class="sidebar-header">HELP</h8>
+    <ul>
+    {% for link in linklists.help.links %}
+      <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+  <div class="left-col">
+    <div class="rte help-content">
+      {{ page.content }}
+    </div>
+  </div>
+</div>

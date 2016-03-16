@@ -7,8 +7,9 @@ var switchImage = function(newImageSrc, newImage, mainImageDomEl) {
   // mainImageDomEl is the passed domElement, which has not yet been manipulated. Let's manipulate it now.
   jQuery(mainImageDomEl).parents('a').attr('href', newImageSrc.replace('_grande', '_1024x1024'));
   jQuery(mainImageDomEl).attr('src', newImageSrc);  
-  jQuery(mainImageDomEl).data('zoom-image', newImageSrc.replace('_grande', '_1024x1024')).elevateZoom();
+  jQuery(mainImageDomEl).data('zoom-image', newImageSrc.replace('_grande', '_1024x1024')).elevateZoom({ zoomType	: "inner", cursor: "crosshair" });
 };
+
 
 jQuery(function($) {
                     
@@ -73,4 +74,25 @@ jQuery(function($) {
     switchImage($(this).attr('href'), null, $('.product-photo-container img')[0]);
   } );
   
+  var height = "auto";
+  $.fn.overflown=function(){var e=this[0];return e.scrollHeight>e.clientHeight||e.scrollWidth>e.clientWidth;}
+  
+  if($("#product-description").overflown()) {
+    $("#readmore").show();
+  }
+  
+  $("body").on("click", "#readmore", function(e) {
+    e.preventDefault();
+    height = $("#product-description").css("height");
+    $("#product-description").css("height", "auto");
+    $("#readmore").hide();
+    $("#readless").show();
+  });
+  
+  $("body").on("click", "#readless", function(e) {
+    e.preventDefault();
+    $("#product-description").css("height", height);
+    $("#readless").hide();
+    $("#readmore").show();
+  });
 });

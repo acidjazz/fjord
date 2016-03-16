@@ -56,14 +56,18 @@
   <div class="discover block">
     <h2>{{ blogs.home.articles[3].title }}</h2>
     <div class="content">
-      <img src="{{ blogs.home.articles[3] | img_url: 'original' }}">
+      <div class="home-block-image" style="background-image:url('{{ blogs.home.articles[3] | img_url: 'original' }}')">
+        <img src="{{ blogs.home.articles[3] | img_url: 'original' }}">
+      </div>
       {{ blogs.home.articles[3].content }}
     </div>
   </div>
   <div class="clean-beauty block">
     <h2>{{ blogs.home.articles[2].title }}</h2>
     <div class="content">
-      <img src="{{ blogs.home.articles[2] | img_url: 'original' }}">
+      <div class="home-block-image" style="background-image:url('{{ blogs.home.articles[2] | img_url: 'original' }}')">
+        <img src="{{ blogs.home.articles[2] | img_url: 'original' }}">
+      </div>
       {{ blogs.home.articles[2].content }}
     </div>
   </div>
@@ -73,14 +77,18 @@
   <div class="shop block">
     <h2>{{ blogs.home.articles[1].title }}</h2>
     <div class="content">
-      <img src="{{ blogs.home.articles[1] | img_url: 'original' }}">
+      <div class="home-block-image" style="background-image:url('{{ blogs.home.articles[1] | img_url: 'original' }}')">
+        <img src="{{ blogs.home.articles[1] | img_url: 'original' }}">
+      </div>
       {{ blogs.home.articles[1].content }}
     </div>
   </div>
   <div class="learn block">
     <h2>{{ blogs.home.articles[0].title }}</h2>
     <div class="content">
-      <img src="{{ blogs.home.articles[0] | img_url: 'original' }}">
+      <div class="home-block-image" style="background-image:url('{{ blogs.home.articles[0] | img_url: 'original' }}')">
+        <img src="{{ blogs.home.articles[0] | img_url: 'original' }}" >
+      </div>
       {{ blogs.home.articles[0].content }}
     </div>
   </div>

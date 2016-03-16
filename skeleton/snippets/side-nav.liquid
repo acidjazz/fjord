@@ -1,3 +1,16 @@
+{% for link in linklists.clothing.links %}
+  {% if link.url contains collection.handle %}
+    {% assign side_nav_type = "clothing" %}
+  {% endif %}
+{% endfor %}
+
+{% for link in linklists.clean-beauty.links %}
+  {% if link.url contains collection.handle %}
+    {% assign side_nav_type = "clean-beauty" %}
+  {% endif %}
+{% endfor %}
+
+{% if side_nav_type == "clothing" %}
 <div class="side-nav">
   <h8 class="sidebar-header">CATEGORY</h8>
   <ul>
@@ -13,3 +26,14 @@
   {% endfor %}
   </ul>
 </div>
+{% endif %}
+{% if side_nav_type == "clean-beauty" %}
+<div class="side-nav">
+  <h8 class="sidebar-header">CATEGORY</h8>
+  <ul>
+  {% for link in linklists.clean-beauty.links %}
+    <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+  {% endfor %}
+  </ul>
+</div>
+{% endif %}

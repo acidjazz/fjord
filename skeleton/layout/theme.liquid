@@ -196,9 +196,9 @@
         <div class="left">
           <h6>HELP</h6>
           <ul>
-            <li><a href="#">Shipping & Processing</a></li>
-            <li><a href="#">Returns</a></li>
-            <li><a href="#">Get fitted</a></li>
+          {% for link in linklists.help.links %}
+            <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+          {% endfor %}
           </ul>
         </div>
         <div class="left">
