@@ -31,7 +31,7 @@ h4
 h5
   font: f.h5
   margin 0
-h6 
+h6
   letter-spacing 3px
   margin 0
 h7
@@ -39,12 +39,11 @@ h7
   font: f.h7
   letter-spacing 3px
   margin 0
-  
 h8, .h8
   display block
   font: f.h8
   letter-spacing 2px
-  margin 0 
+  margin 0
 
 h10
   display block
@@ -61,25 +60,25 @@ h12
   display block
   font: f.h12
   letter-spacing 1px
-  margin 0 
+  margin 0
 h14
   display block
   font: f.h14
   letter-spacing 1px
   margin 0
-    
+
 .copy8
   font: f.copy8
-  
-footer 
+
+footer
   color: c.grey2
   text-align left
+  padding 0 20px
   a
     color: c.grey2
   > .copyright
     > .footer-small
       font: f.copy7
-    
 .container
   padding 0px
 
@@ -89,16 +88,15 @@ footer
 .fj-cart
   width 40%
   height 45px
-  
-.fj-header-logo 
+
+.fj-header-logo
   display block
   width 400px
   height 49px
   margin 10px auto 10px auto
   svg > g > path
     fill: c.grey2
-    
-.site-header__desc 
+.site-header__desc
   font: f.h2
   padding 10px 0
   color: c.grey2
@@ -123,7 +121,7 @@ footer
       > svg path
         fill: c.grey2
 
-header.row 
+header.row
   > .fj-topnav, > .fj-cart
     background-color: c.grey1
     padding-bottom 0px
@@ -182,7 +180,6 @@ header.row
     min-width 176px
     > a > img
       width 176px
-      
 .prod-image-wrap
         height 200px
         min-width 200px
@@ -208,3 +205,22 @@ header.row
 .rte
   strong
     font: f.copy6
+
+@media all and (min-width: 1px) and (max-width: 1000px)
+  .fj-header-logo
+    width 300px
+    height 49px
+    margin 10px auto 10px auto
+    svg > g > path
+      fill: c.grey2
+  .site-header__desc
+    font: f.h8
+    letter-spacing 1px
+  .col
+    width 100%
+
+  footer
+    > .right
+      float none !important
+      width 100%
+      padding-left 0
