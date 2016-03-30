@@ -48,10 +48,16 @@
 
   <!-- fjord-related JS -->
   {{ 'main.js' | asset_url | script_tag }}
+  
 
   {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
   <script>jQuery('html').removeClass('no-js').addClass('js');</script>
+  
+  {{ 'common.js'  | asset_url | script_tag }}
+    
+  {{ '//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.3/jquery.colorbox.js' | script_tag }}
 
+  
   <!-- Product ZOOM -->
   {{ 'zoom.js' | asset_url | script_tag }}
 </head>
@@ -133,7 +139,7 @@
 
         <a class="fj-header-logo" href="/" itemprop="url">{% include "logo-svg" %}</a>
         <div class="site-header__desc">Sustainable Style ~ Natural Beauty ~ Thoughtful Design</div>
-        <div class="discount">FIRST TIME SHOPPING WITH US? TAKE 10% OFF YOUR FIRST ORDER BY SUBSCRIBING</div>
+        <div class="discount">{{ settings.discount }}</div>
         {% if template == 'index' %}
         {% comment %}
           Many SEO audit tools look for a h1 tag on the home page. Let's give 'em one.
@@ -177,7 +183,7 @@
     </footer>-->
     
     <footer>
-      <div>
+      <div class="left footer_blocks">
         <div class="left">
           <h6>ABOUT</h6>
           <ul>
@@ -209,18 +215,39 @@
           </ul>
         </div>
       </div>
+      <div class="right">
+                <!-- Begin MailChimp Signup Form -->
+      <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+      <style type="text/css">
+      	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+      	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+      </style>
+      <div id="mc_embed_signup">
+      <form action="//jeffizzle.us13.list-manage.com/subscribe/post?u=0725047d0743419ef943cdd0f&amp;id=2a6a16afb5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <div id="mc_embed_signup_scroll">
+      	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_0725047d0743419ef943cdd0f_2a6a16afb5" tabindex="-1" value=""></div>
+          <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+          </div>
+      </form>
+      </div>
+
+      <!--End mc_embed_signup-->
+              </div>
       <div class="clear copyright">
       &copy; 2016 FJORDLIFE<br /><span class="footer-small">SITE BY DESIGNSAKE STUDIO</span>
       </div>
+      
     </footer>
 
     {% comment %}Shopify does not support Internet Explorer 6 nor 7. It does encourage themes to support IE8 until the end of 2014.{% endcomment %}
     <!--[if lt IE 8]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
-    
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us13.list-manage.com","uuid":"0725047d0743419ef943cdd0f","lid":"2a6a16afb5"}) })</script>
   </div><!-- end of #container -->
-
+  
   {{ 'shop.js'  | asset_url | script_tag }}
 
 </body>

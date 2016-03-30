@@ -56,7 +56,7 @@
   <div class="discover block">
     <h2>{{ blogs.home.articles[3].title }}</h2>
     <div class="content">
-      <div class="home-block-image" style="background-image:url('{{ blogs.home.articles[3] | img_url: 'original' }}')">
+      <div class="home-block-image">
         <img src="{{ blogs.home.articles[3] | img_url: 'original' }}">
       </div>
       {{ blogs.home.articles[3].content }}
@@ -65,7 +65,7 @@
   <div class="clean-beauty block">
     <h2>{{ blogs.home.articles[2].title }}</h2>
     <div class="content">
-      <div class="home-block-image" style="background-image:url('{{ blogs.home.articles[2] | img_url: 'original' }}')">
+      <div class="home-block-image">
         <img src="{{ blogs.home.articles[2] | img_url: 'original' }}">
       </div>
       {{ blogs.home.articles[2].content }}
@@ -77,7 +77,7 @@
   <div class="shop block">
     <h2>{{ blogs.home.articles[1].title }}</h2>
     <div class="content">
-      <div class="home-block-image" style="background-image:url('{{ blogs.home.articles[1] | img_url: 'original' }}')">
+      <div class="home-block-image">
         <img src="{{ blogs.home.articles[1] | img_url: 'original' }}">
       </div>
       {{ blogs.home.articles[1].content }}
@@ -86,7 +86,7 @@
   <div class="learn block">
     <h2>{{ blogs.home.articles[0].title }}</h2>
     <div class="content">
-      <div class="home-block-image" style="background-image:url('{{ blogs.home.articles[0] | img_url: 'original' }}')">
+      <div class="home-block-image">
         <img src="{{ blogs.home.articles[0] | img_url: 'original' }}" >
       </div>
       {{ blogs.home.articles[0].content }}
@@ -96,7 +96,7 @@
 
 <div class="col3 col">
   <div class="shop-favorites block">
-    <h8>SHOP OUR <br> FAVORITES</h8>
+    <h8>SHOP OUR FAVORITES</h8>
     <div class="col3-content">
       <ul class="grid clearfix">
       {% for product in collections.featured.products limit:4 %}
@@ -109,7 +109,7 @@
   </div>
   <hr />
   <div class="blog block">
-    <h8>FJORDLIFE <br> BLOG</h8>
+    <h8>FJORDLIFE BLOG</h8>
     <div class="col3-content"> 
       {% for article in blogs.news.articles limit:2 %}
       <div class="article">

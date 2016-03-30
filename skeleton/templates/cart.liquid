@@ -1,4 +1,5 @@
-<h1>Shopping Cart</h1>
+<div id="cart">
+<h2>Shopping Cart</h2>
   
 {% if cart.item_count > 0 %}
 
@@ -41,11 +42,11 @@
           </a>
         </td>
         <td>
-          <h2 class="delta">
+          <h12>
             <a href="{{ collection_url }}{{ item.url }}">
             {{ item.title }}
             </a>
-          </h2>
+          </h12>
           {% comment %}
           Line Item Properties
           {% endcomment %}
@@ -65,7 +66,7 @@
             {% endfor %}
           </p>
           {% endif %}
-          <h3 class="epsilon">{{ item.vendor }}</h3>
+          <h8 class="delta">{{ item.vendor }}</h8>
         </td>
         <td class="hide-on-small">{{ item.price | money }}</td>
         <td>
@@ -88,7 +89,7 @@
   {% endcomment %}
   
   <div class="column two-thirds flow-opposite right-aligned">
-    <h3 class="gamma">Subtotal <em>{{ cart.total_price | money }}</em></h3>
+    <h5 class="gamma subtotal">Subtotal <em>{{ cart.total_price | money }}</em></h5>
     <a class="hide-on-small" href="{{ continue_shopping_url }}">Continue shopping</a>
     <span class="or hide-on-small">or</span>
     <input type="submit" name="update" value="Update cart" />
@@ -121,3 +122,4 @@
 </div>
 
 {% endif %}
+</div>

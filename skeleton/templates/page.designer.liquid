@@ -1,40 +1,46 @@
-{% comment %}
-<ul class="grid clearfix">
+<div id="designer_list">
 
 
 {% for collection in collections %}
   {% if collection.template_suffix == 'designer' %}
-    <div><img src="{{ collection.image.src | img_url: 'medium' }}"</div>
+    
+    <a href="{{ pages.[collection.handle].url }}">
+      <div class="left designer_block">
+        <div  class="designer_image" style="background-image: url('{{ collection.image.src | img_url: 'large' }}'); background-repeat: no-repeat; background-size: cover;)">
+        </div>
+        <div class="designer_text">
+          <h4 class="title">{{ collection.title }}</h4>
+          <h5 class="description">{{ collection.description | strip_html | truncate: 150 }}</h5>
+        </div>
+      </div>
+    </a>
   {% endif %}
 {% endfor %}
 </ul>
-{% endcomment %}
-
-<div class="parallax-container">
-<ul class="parallax">
-  <li><div style="background-image:url('http://i.imgur.com/JUndYYH.jpg?1')">1</div></li>
-  <li><div style="background-image:url('http://i.imgur.com/JUndYYH.jpg?1')">2</div></li>
-  <li><div style="background-image:url('http://i.imgur.com/JUndYYH.jpg?1')">3</div></li> 
-  <li><div style="background-image:url('http://i.imgur.com/JUndYYH.jpg?1')">4</div></li>
-  <li><div style="background-image:url('http://i.imgur.com/JUndYYH.jpg?1')">5</div></li>
-  <li><div style="background-image:url('http://i.imgur.com/JUndYYH.jpg?1')">6</div></li>
-  <li><div style="background-image:url('http://i.imgur.com/JUndYYH.jpg?1')">7</div></li>
-  <li><div style="background-image:url('http://i.imgur.com/JUndYYH.jpg?1')">8</div></li>
-  <li><div style="background-image:url('http://i.imgur.com/JUndYYH.jpg?1')">9</div></li>
-  <li><div style="background-image:url('http://i.imgur.com/JUndYYH.jpg?1')">10</div></li> 
-  <li><div style="background-image:url('http://i.imgur.com/JUndYYH.jpg?1')">11</div></li>
-  <li><div style="background-image:url('http://i.imgur.com/JUndYYH.jpg?1')">12</div></li>
-  <li><div style="background-image:url('http://i.imgur.com/JUndYYH.jpg?1')">13</div></li>
-  <li><div style="background-image:url('http://i.imgur.com/JUndYYH.jpg?1')">14</div></li>
-</ul>
 </div>
+
 
 <script>
 
-var parallaxWidth = $(".parallax").width();
-var parallaxLeft = $(".parallax").offset().left;
+var parallaxWidth = $(".parallax-container").width();
+var parallaxCenter = (parallaxWidth/2) - 200;
+var parallaxDefault = $(".parallax").offset().left;
+var lastOffset = 0;
 
 $(".parallax > li").click(function() {
-  $(".parallax").css("left", ($(this).offset().left+300)*-1);
-})
+  var parallaxLeft = $(".parallax").offset().left;
+  var parallaxCenterOffset = $(".parallax").offset().left + parallaxCenter; 
+  var p = $(this);
+  var offset = parallaxCenterOffset - $(this).offset().left;
+  
+  $(".parallax").animate({left: offset}, 400, "swing", function() { 
+    console.log(offset + " " + lastOffset);
+    if(p.prevAll().length > 2 && lastOffset != offset) {
+      $('.parallax li:last').after($('.parallax li:first')); 
+      lastOffset = offset+400;
+      $('.parallax').css('left', offset+400);
+    }
+    
+  }); 
+});
 </script>

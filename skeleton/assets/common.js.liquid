@@ -1,0 +1,11 @@
+jQuery(function($) {
+  $(document).ready(function() {
+    $("#customer_login_link").colorbox({href:function(){ return this.href + " #customer"; }, width:"450px", height:"400px", onLoad: function() {
+        $('#cboxClose').remove();
+    }});
+    
+    $("#customer_register_link").colorbox({href:function(){ return this.href + " #customer"; }, width:"450px", height:"600px", onLoad: function() {
+        $('#cboxClose').remove();
+    }});
+  });
+});

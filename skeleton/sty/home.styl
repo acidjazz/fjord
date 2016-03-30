@@ -7,17 +7,19 @@
   text-align center
   a
     color: c.grey2
-    font: f.copy6
+    font: f.copy10
+    &:hover
+      color: c.grey1
   img
     width 100%
     padding-bottom 20px 
-  .block
+  .block 
     min-height 470px
   h1
     font: f.h1
   h2
     font: f.h2
-    width 80%
+    width 90%
     margin auto
     margin-bottom 15px
   p
@@ -27,12 +29,19 @@
   hr
     margin-bottom 50px
     margin-top 50px
+.col1, .col2
+  .block
+    height 675px
 .col3
   width 40%
   .block
     min-height 0px
   .col3-content
     padding-top 30px
+    > .article > p
+      font: f.h13
+      text-transform uppercase
+      
     
 .blog
   .article
@@ -46,14 +55,13 @@
     text-align left
     padding-top 10px
     
-.home-block-image
-  background-size 100%
-  background-repeat no-repeat
-  margin-bottom 15px
-  transition background-size 2s
-  &:hover
-    background-size 200%
+.home-block-image 
+  overflow hidden
+  margin-bottom 20px
   > img
-    visibility hidden
+    transition all 2s
+    padding 0
+    &:hover
+      transform: scale(1.2);
 
   

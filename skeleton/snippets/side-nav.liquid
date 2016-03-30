@@ -10,6 +10,10 @@
   {% endif %}
 {% endfor %}
 
+{% if collection.handle == "all" %}
+  {% assign side_nav_type = "all" %}
+{% endif %}
+
 {% if side_nav_type == "clothing" %}
 <div class="side-nav">
   <h8 class="sidebar-header">CATEGORY</h8>
@@ -21,13 +25,13 @@
 
   <h8 class="sidebar-header">BRANDS</h8>
   <ul>
-  {% for link in linklists.brands.links %}
+  {% for link in linklists.clothing-brands.links %}
     <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
   {% endfor %}
   </ul>
 </div>
-{% endif %}
-{% if side_nav_type == "clean-beauty" %}
+
+{% elsif side_nav_type == "clean-beauty" %}
 <div class="side-nav">
   <h8 class="sidebar-header">CATEGORY</h8>
   <ul>
@@ -35,5 +39,36 @@
     <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
   {% endfor %}
   </ul>
+  
+  <h8 class="sidebar-header">BRANDS</h8>
+  <ul>
+  {% for link in linklists.clean-beauty-brands.links %}
+    <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+  {% endfor %}
+  </ul>
 </div>
+
+{% else %}
+<div class="side-nav">
+  <h8 class="sidebar-header">CATEGORY</h8>
+  <ul>
+  {% for link in linklists.clothing.links %}
+    <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+  {% endfor %}
+  {% for link in linklists.clean-beauty.links %}
+    <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+  {% endfor %}
+  </ul>
+  
+  <h8 class="sidebar-header">BRANDS</h8>
+  <ul>
+  {% for link in linklists.clothing-brands.links %}
+    <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+  {% endfor %}
+  {% for link in linklists.clean-beauty-brands.links %}
+    <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+  {% endfor %}
+  </ul>
+</div>
+
 {% endif %}

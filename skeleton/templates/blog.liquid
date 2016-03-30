@@ -1,9 +1,9 @@
 {% paginate blog.articles by 5 %}
 
 {% if current_tags %}
-<h1 class="delta">{{ blog.title | link_to: blog.url }} <span class="quiet">&raquo;</span> {{ current_tags.first }}</h1>
+<h2>{{ blog.title | link_to: blog.url }} <span class="quiet">&raquo;</span> {{ current_tags.first }}</h2>
 {% else %}
-<h1 class="delta">{{ blog.title }}</h1>
+<h2>{{ blog.title }}</h2>
 {% endif %}
 
 <div class="articles">
@@ -28,12 +28,12 @@
   {% endif %}  
   
   <div class="article{% if forloop.first %} first{% endif %}{% if forloop.last %} last{% endif %} clear">
-    <h2 class="title">
+    <h5 class="title">
       <a href="{{ article.url }}">{{ article.title }}</a>
-    </h2>
-    <h3 class="date">
+    </h5>
+    <h13>
       <time pubdate datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%b %d, %Y' }}</time>
-    </h3>
+    </h13>
     <div class="row">
       {% if article_has_image %}
       <div class="third column">
@@ -43,7 +43,7 @@
         </a>
       </div>
       <div class="two-thirds column">
-        <div class="rte fadeout-overflow-bottom grid-margins">          
+        <div class="rte grid-margins">          
       {% else %}
       <div class="full column">
         <div class="rte">
@@ -55,7 +55,7 @@
           {% endif %}
         </div>
         <p>
-          <a class="blog-read-more" href="{{ article.url }}">Read more →</a>
+          <a class="blog-read-more" href="{{ article.url }}">READ MORE</a>
         </p>
       </div>
     </div>

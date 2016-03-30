@@ -74,12 +74,15 @@ jQuery(function($) {
     switchImage($(this).attr('href'), null, $('.product-photo-container img')[0]);
   } );
   
-  var height = "auto";
-  $.fn.overflown=function(){var e=this[0];return e.scrollHeight>e.clientHeight||e.scrollWidth>e.clientWidth;}
+  $(document).ready(function() {
+    var height = "auto";
+    $.fn.overflown=function(){var e=this[0];return e.scrollHeight>e.clientHeight||e.scrollWidth>e.clientWidth;}
+
+    if($("#product-description").overflown()) {
+      $("#readmore").show();
+    }
+  })
   
-  if($("#product-description").overflown()) {
-    $("#readmore").show();
-  }
   
   $("body").on("click", "#readmore", function(e) {
     e.preventDefault();

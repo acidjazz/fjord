@@ -5,6 +5,7 @@
 {% assign numbers = 'zero, one, two, three, four, five, six' | split: ',' %}
 {% assign products_per_row = settings.products_per_row | times: 1 %}
 {% assign products_per_row = numbers[products_per_row] | strip | append: '-per-row' %}
+{% assign product_vendor_handle = product.vendor | handle %}
 
 <div class="padding"></div>
 {% include 'side-nav' %}
@@ -46,12 +47,14 @@
         {% endif %}
     
       {% endif %}
-
+        <div>
+          {{ collections[product_vendor_handle].description }}
+        </div>
       </div><!-- .product-photos -->
     
       <div class="product-details">
       
-        {% assign product_vendor_handle = product.vendor | handle %}
+        
         {% comment %}
         Do we have a collection that has the same name as our product vendor name?
         If we do, let's have the vendor link point to it.
@@ -85,8 +88,8 @@
         <div id="product-description" class="rte" itemprop="description">
           {{ product.description }}
         </div>
-        <div><a id="readmore" href="#">Read More</a></div>
-        <div><a id="readless" href="#">Read Less</a></div>
+        <div><a id="readmore" href="#">READ MORE &#x25BC;</a></div>
+        <div><a id="readless" href="#">READ LESS &#x25B2;</a></div>
         {% comment %}
           All themes by Shopify should support the Product Reviews app out of the box.
           https://apps.shopify.com/product-reviews
@@ -135,7 +138,8 @@
     </form>
   </div>
   <div class="hr"></div>
-  {% include 'recommendations' %}
+
+  {% include 'recommendations' with {collection_type:product_vendor_handle} %}
 </div>
 
 

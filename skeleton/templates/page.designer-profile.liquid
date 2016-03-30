@@ -1,0 +1,74 @@
+{% comment %}
+  Important notes about pagination:
+  - Never access collections[page.handle].products before the opening paginate tag.
+  - Never paginate by more than 50.
+{% endcomment %}
+
+{% assign products_per_page = settings.products_per_row | times: settings.number_of_rows %}
+{% assign numbers = 'zero, one, two, three, four, five, six' | split: ',' %}
+{% assign products_per_row = '4' | times: 1 %}
+{% assign products_per_row = numbers[products_per_row] | strip | append: '-per-row' %}
+
+{% paginate collections[page.handle].products by products_per_page %}
+
+{% comment %}
+  Re-use the .rte class wherever you output content that was added by a merchant using
+  the Rich Text Editor ( 'rte' stands for rich text editor ).
+  Style all HTML elements in that content the same way across the board.
+  Use the .rte class in your CSS to help maintain consistency.
+  Example: the h2 element should have the same size and color in:
+  - product descriptions
+  - collection descriptions
+  - page content
+  - blog post
+{% endcomment %}
+
+<div id="header" style="background-image:url('{{ collections[page.handle].image.src | img_url: 'original' }}')">
+  <div class="header_copy">
+    <h3>APPAREL BRAND</h3>
+    <h4>{{ collections[page.handle].title }}</h4>
+    <h5>DESIGNER SPOTLIGHT</h5>
+  </div>
+</div>
+
+{% if collections[page.handle].description.size > 0 %}
+<div class="rte clearfix">
+  <div class="collection-desc-header">
+    <h2>Meet the ladies behind</h2>
+    <h1>{{ page.title }}</h1>
+  </div>
+  {{ page.content }}
+</div>
+{% endif %}
+<div class="recommendations">
+  <h7>LIKE WHAT YOU HEAR? SHOP THE CAUSE</h7>
+  <ul class="grid clearfix">
+  {% for product in collections[page.handle].products %}
+    {% include 'product-grid-item' with products_per_row %}
+  {% else %}
+    <p>There are no products in this view.</p>
+  {% endfor %}
+  </ul>
+</div>
+
+{% include 'instagram' %}
+
+{% if paginate.pages > 1 %}
+<div class="pagination centered">
+  {{ paginate | default_pagination }}
+</div>
+{% endif %}
+
+{% endpaginate %}
+
+{% comment %}
+  JavaScript for collection sorting.
+{% endcomment %}
+<script>
+jQuery('.sort-by')
+  .val('{{ collections[page.handle].sort_by | default: collections[page.handle].default_sort_by }}')
+  .on('change', function() {
+    Shopify.queryParams.sort_by = jQuery(this).val();
+    location.search = jQuery.param(Shopify.queryParams).replace(/\+/g, '%20');
+  });
+</script>

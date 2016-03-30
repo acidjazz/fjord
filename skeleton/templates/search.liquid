@@ -45,7 +45,7 @@ selectors inside search.css.
     <ol>
       {% for item in search.results %}      
       <li class="clearfix">
-        <h3>{{ item.title | link_to: item.url }}</h3>
+        <h8>{{ item.title | link_to: item.url }}</h8>
         {% if item.vendor %}
         <div class="result-image">
           <a href="{{ item.url }}" title="{{ item.title | escape }}">

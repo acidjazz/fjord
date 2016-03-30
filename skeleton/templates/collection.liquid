@@ -9,9 +9,11 @@
 {% assign products_per_row = settings.products_per_row | times: 1 %}
 {% assign products_per_row = numbers[products_per_row] | strip | append: '-per-row' %}
 
-<div id="header" style="background-image:url('{{ collection.image.src | img_url: 'original' }}')">
-  
-</div>
+{% if collection.image.src %}
+<div id="header" style="background-image:url('{{ collection.image.src | img_url: 'original' }}')"></div>
+{% else %}
+<div id="header" style="background-image:url('//cdn.shopify.com/s/files/1/1087/6326/collections/carousel_3_1024x1024.jpg?v=1457315156')"></div>
+{% endif %}
 
 {% paginate collection.products by products_per_page %}
 
