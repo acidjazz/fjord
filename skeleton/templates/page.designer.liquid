@@ -9,7 +9,7 @@
         <div  class="designer_image" style="background-image: url('{{ collection.image.src | img_url: 'large' }}'); background-repeat: no-repeat; background-size: cover;)">
         </div>
         <div class="designer_text">
-          <h4 class="title">{{ collection.title }}</h4>
+          <h2 class="title">{{ collection.title }}</h2>
           <h5 class="description">{{ collection.description | strip_html | truncate: 150 }}</h5>
         </div>
       </div>
