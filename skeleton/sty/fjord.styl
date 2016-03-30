@@ -6,6 +6,10 @@ vendor-prefixes ?= webkit moz o ms official
 @import fonts
 @import guide
 
+
+.container
+  padding 0
+
 body
   letter-spacing 1px
   font: f.copy1
@@ -34,7 +38,7 @@ h4
 h5
   font: f.h5
   margin 0
-h6 
+h6
   letter-spacing 3px
   margin 0
 h7
@@ -42,24 +46,25 @@ h7
   font: f.h7
   letter-spacing 3px
   margin 0
-  
 h8, .h8
   display block
   font: f.h8
   letter-spacing 2px
-  margin 0 
+  margin 0
 
 h10
   display block
   font: f.h10
   letter-spacing 3px
   margin 0
+  
 h11
   display block
   font: f.h11
   letter-spacing 1px
   line-height 40px
   margin 0
+  
 h12
   display block
   font: f.h12
@@ -70,7 +75,7 @@ h13
   font: f.h13
   letter-spacing 1px
   margin 0
-    
+  
 h14
   display block
   font: f.h14
@@ -101,6 +106,8 @@ footer
     width 57%
     > div
       padding-right 30px
+  
+
   a
     color: c.grey2
   > .copyright
@@ -109,6 +116,7 @@ footer
     
 .container
   padding 0px
+  /* font: f.copy7 */
 
 .fj-topnav
   width 60%
@@ -116,16 +124,15 @@ footer
 .fj-cart
   width 40%
   height 45px
-  
-.fj-header-logo 
+
+.fj-header-logo
   display block
   width 400px
   height 49px
   margin 10px auto 10px auto
   svg > g > path
     fill: c.grey2
-    
-.site-header__desc 
+.site-header__desc
   font: f.h2
   padding 10px 0
   color: c.grey2
@@ -133,9 +140,10 @@ footer
 
 .search-form
   border: 1px solid c.grey2
+  margin-right 20px
   > input
     border none
-    padding 7px 0 8px 0
+    padding 10px 0 8px 0
     font: f.copy1
     text-transform uppercase
   > label
@@ -149,8 +157,10 @@ footer
       padding 5px
       > svg path
         fill: c.grey2
-
-header.row 
+header > .social-links
+  padding-right 30px
+  padding-bottom 0px
+header.row
   > .fj-topnav, > .fj-cart
     background-color: c.grey1
     padding-bottom 0px
@@ -209,7 +219,6 @@ header.row
     min-width 176px
     > a > img
       width 176px
-      
 .prod-image-wrap
         height 200px
         min-width 200px
@@ -246,4 +255,36 @@ header.row
   
 .pagination
   padding-bottom 30px
-  
+ 
+@media all and (min-width: 1px) and (max-width: 1000px)
+
+  .fj-topnav
+    width 100%
+    height auto
+  .fj-cart
+    width 100%
+    height auto
+
+  header
+    > .social-links
+      text-align center
+      padding-right 0px
+
+  .fj-header-logo
+    width 300px
+    height 49px
+    margin 10px auto 10px auto
+    svg > g > path
+      fill: c.grey2
+  .site-header__desc
+    font: f.h8
+    letter-spacing 1px
+  .col
+    width 100%
+
+  footer
+    > .right
+      float none !important
+      width 100%
+      padding-left 0
+

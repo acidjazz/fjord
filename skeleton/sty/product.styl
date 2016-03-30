@@ -4,9 +4,46 @@
   height 30.6em
   margin-bottom 10px
 
+.vendor_message
+  text-align left
 
 #readmore
   display none
 
 #readless 
   display none
+  
+#product-share
+  position relative
+  background-color: c.grey1
+  width 150px
+  height 40px
+  &:hover .label
+    opacity 0
+    visibility hidden
+  &:hover .social
+    visibility visible
+    opacity 1
+  > .label
+    text-align center
+    width 100%
+    padding 10px
+    position absolute
+    top 0
+    left 0
+    opacity 1
+    transition opacity .75s
+    transition visibility .75s
+  
+  > .social
+    text-align center
+    width 100%
+    padding 10px
+    visibility hidden
+    position absolute
+    top 0
+    left 0
+    color #fff
+    opacity 0
+    transition opacity .75s
+    transition visibility .75s

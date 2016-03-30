@@ -52,13 +52,10 @@
     #product-share
       padding-top 10px
       text-align left
-      > label
-        text-transform capitalize
-        width 12%
-        padding 0
-        vertical-align top
       a
-        color: c.grey1
+        padding-left 5px
+        padding-right 5px
+        color: c.white1
         font-size 18px
   .padding
     height 50px
@@ -84,4 +81,16 @@
     .other-products
       padding-bottom 20px
       
-      
+@media all and (min-width: 1px) and (max-width: 1000px)
+  #main > .side-nav
+    float none
+    width auto
+    padding 0 20px
+  #main > .left-col
+    width 100%
+    float none
+    padding 0 20px
+  .prod-image-wrap > a > img
+    width 100%
+     
+

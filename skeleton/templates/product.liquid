@@ -47,7 +47,7 @@
         {% endif %}
     
       {% endif %}
-        <div>
+        <div class="vendor_message">
           {{ collections[product_vendor_handle].description }}
         </div>
       </div><!-- .product-photos -->
@@ -121,7 +121,8 @@
           <input type="submit" name="add" id="add" class="primary button" value="{{ add_to_cart | escape }}">
         </div>
         <div id="product-share">
-          <label>Share</label>
+          
+          <div class="social">
           {% unless settings.facebook_url == blank %}
           <a href="{{ settings.facebook_url }}" title="Follow us on Facebook" target="_blank"><span class="shopify-social-icon-facebook{{ settings.social_icons_style }}"></span></a>
           {% endunless %}
@@ -132,6 +133,8 @@
           <a href="{{ settings.instagram_url }}" title="Follow us on Instagram" target="_blank"><span class="shopify-social-icon-instagram{{ settings.social_icons_style }}"></span></a>
           {% endunless %}
           </div>
+          <div class="label">SHARE</div>
+        </div>
       
       </div><!-- .product-details -->
 
