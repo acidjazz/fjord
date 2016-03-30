@@ -6,6 +6,10 @@ vendor-prefixes ?= webkit moz o ms official
 @import fonts
 @import guide
 
+
+.container
+  padding 0
+
 body
   letter-spacing 1px
   font: f.copy1
@@ -121,6 +125,7 @@ footer
         fill: c.grey2
 header > .social-links
   padding-right 30px
+  padding-bottom 0px
 header.row
   > .fj-topnav, > .fj-cart
     background-color: c.grey1
@@ -218,6 +223,7 @@ header.row
   header
     > .social-links
       text-align center
+      padding-right 0px
 
   .fj-header-logo
     width 300px
