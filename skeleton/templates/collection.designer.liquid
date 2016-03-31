@@ -6,8 +6,14 @@
 
 {% assign products_per_page = settings.products_per_row | times: settings.number_of_rows %}
 {% assign numbers = 'zero, one, two, three, four, five, six' | split: ',' %}
-{% assign products_per_row = '4' | times: 1 %}
+{% assign products_per_row = settings.products_per_row | times: 1 %}
 {% assign products_per_row = numbers[products_per_row] | strip | append: '-per-row' %}
+
+{% if collection.image.src %}
+<div id="header" style="background-image:url('{{ collection.image.src | img_url: 'original' }}')"></div>
+{% else %}
+<div id="header" style="background-image:url('//cdn.shopify.com/s/files/1/1087/6326/collections/carousel_3_1024x1024.jpg?v=1457315156')"></div>
+{% endif %}
 
 {% paginate collection.products by products_per_page %}
 
@@ -23,43 +29,64 @@
   - blog post
 {% endcomment %}
 
-<div id="header" style="background-image:url('{{ collection.image.src | img_url: 'original' }}')">
-  <div class="header_copy">
-    <h3>APPAREL BRAND</h3>
-    <h4>{{ collection.title }}</h4>
-    <h5>DESIGNER SPOTLIGHT</h5>
-  </div>
-</div>
+{% comment %}
+  Listing all tags within the current collection.
+  Shopify uses product tags to manage subcategories inside collections.
+  See 'How do I create subcategories of products?' at 
+  http://bit.ly/1j1Dti4 for details.
+{% endcomment %}
+
+<!--
+{% if collection.all_tags.size > 0 %}
+<ul class="subcategories clearfix clear">
+  <li class="{% unless current_tags %} active{% endunless %}">
+    {{ 'All' | link_to_remove_tag: current_tags.first }}
+  </li>
+  {% for tag in collection.all_tags %}
+  {% if current_tags contains tag %}
+  <li class="active">
+    {{ tag | link_to_remove_tag: tag }}
+  </li>
+  {% else %}
+  <li>
+    {{ tag | link_to_tag: tag }}
+  </li>
+  {% endif %}
+  {% endfor %}  
+</ul>
+{% endif %}
 
 {% if collection.description.size > 0 %}
 <div class="rte clearfix">
-  <div class="collection-desc-header">
-    <h2>Meet the ladies behind</h2>
-    <h1>{{ collection.title }}</h1>
-  </div>
   {{ collection.description }}
 </div>
 {% endif %}
-<div class="recommendations">
-  <h7>LIKE WHAT YOU HEAR? SHOP THE CAUSE</h7>
-  <ul class="grid clearfix">
-  {% for product in collection.products %}
-    {% include 'product-grid-item' with products_per_row %}
-  {% else %}
-    <p>There are no products in this view.</p>
-  {% endfor %}
-  </ul>
+-->
+<div class="padding"></div>
+{% include 'side-nav' %}
+<div class="left-col">
+  <div class="product-grid">
+    <ul class="grid clearfix">
+    {% for product in collection.products %}
+      {% include 'product-grid-item' with products_per_row %}
+    {% else %}
+      <p>There are no products in this view.</p>
+    {% endfor %}
+    </ul>
+  </div>
+
+  {% if paginate.pages > 1 %}
+  <div class="pagination centered">
+    {{ paginate | default_pagination }}
+  </div>
+  {% endif %}
+
+  {% endpaginate %}
+  
+  {% include 'recommendations' %}
 </div>
 
 {% include 'instagram' %}
-
-{% if paginate.pages > 1 %}
-<div class="pagination centered">
-  {{ paginate | default_pagination }}
-</div>
-{% endif %}
-
-{% endpaginate %}
 
 {% comment %}
   JavaScript for collection sorting.
