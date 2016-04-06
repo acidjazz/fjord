@@ -10,7 +10,8 @@
         </div>
         <div class="designer_text">
           <h2 class="title">{{ collection.title }}</h2>
-          <h5 class="description">{{ collection.description | strip_html | truncate: 150 }}</h5>
+          <h11 class="description">{{ collection.description | strip_html | truncate: 150 }}</h11>
+          <h11 class="readmore">READ MORE</h11>
         </div>
       </div>
     </a>
@@ -29,7 +30,7 @@ var lastOffset = 0;
 
 $(".parallax > li").click(function() {
   var parallaxLeft = $(".parallax").offset().left;
-  var parallaxCenterOffset = $(".parallax").offset().left + parallaxCenter; 
+  var parallaxCenterOffset = $(".parallax").offset().left + parallaxCenter;
   var p = $(this);
   var offset = parallaxCenterOffset - $(this).offset().left;
   
