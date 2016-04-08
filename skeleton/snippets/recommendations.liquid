@@ -1,12 +1,14 @@
 {% if collection_type == blank %}
-  {% assign collection_type = 'featured' %}
+  {% assign col_type = 'featured' %}
+{% elsif collections[collection_type].products.size < 1 %}
+  {% assign col_type = 'featured' %}
 {% endif %}
 
 <div class="recommendations">
   <h7 class="other-products">OTHER PRODUCTS YOU MIGHT LIKE</h7>
   <div class="product-grid">
     <ul class="grid clearfix">
-    {% for product in collections[collection_type].products limit:3 %}
+    {% for product in collections[col_type].products limit:3 %}
       {% include 'featured-product-grid-item' with products_per_row %}
     {% else %}
       <p>There are no products in this view.</p>

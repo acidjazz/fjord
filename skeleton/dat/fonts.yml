@@ -14,7 +14,7 @@ h13: 14pt fnt_bauer_roman
 h14: 20pt fnt_averta_lightitalic
 h15: 16pt fnt_averta_regularitalic
 h16: 16pt fnt_averta_bold 
-copy1: 9pt fnt_averta_regular
+copy1: 10pt fnt_averta_regular
 copy2: 8pt fnt_averta_semibold
 copy3: 20pt fnt_bauer_roman 
 copy4: 25pt fnt_averta_semibold

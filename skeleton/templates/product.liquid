@@ -123,15 +123,9 @@
         <div id="product-share">
           
           <div class="social">
-          {% unless settings.facebook_url == blank %}
-          <a href="{{ settings.facebook_url }}" title="Follow us on Facebook" target="_blank"><span class="shopify-social-icon-facebook{{ settings.social_icons_style }}"></span></a>
-          {% endunless %}
-          {% unless settings.twitter_url == blank %}
-          <a href="{{ settings.twitter_url }}" title="Follow us on Twitter" target="_blank"><span class="shopify-social-icon-twitter{{ settings.social_icons_style }}"></span></a>
-          {% endunless %}
-          {% unless settings.instagram_url == blank %}
-          <a href="{{ settings.instagram_url }}" title="Follow us on Instagram" target="_blank"><span class="shopify-social-icon-instagram{{ settings.social_icons_style }}"></span></a>
-          {% endunless %}
+          <a href="javascript:window.open('https://www.facebook.com/sharer/sharer.php?u='+escape(window.location.href)+'&t='+document.title);" target="_blank" alt="Share on Facebook"><span class="shopify-social-icon-facebook{{ settings.social_icons_style }}"></span></a>
+          <a href="javascript:window.open('https://twitter.com/share?url='+escape(window.location.href));" title="Follow us on Twitter" target="_blank"><span class="shopify-social-icon-twitter{{ settings.social_icons_style }}"></span></a>
+          <a href="javascript:window.open('http://pinterest.com/pin/create/button/?url='+escape(window.location.href));" title="Pin It" target="_blank"><span class="shopify-social-icon-pinterest{{ settings.social_icons_style }}"></span></a>
           </div>
           <div class="label">SHARE</div>
         </div>

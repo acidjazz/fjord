@@ -4,7 +4,64 @@ jQuery(function($) {
         $('#cboxClose').remove();
     }});
     
-    $("#customer_register_link").colorbox({href:function(){ return this.href + " #customer"; }, width:"450px", height:"600px", onLoad: function() {
+    $("#customer_register_link").colorbox({href:function(){ return this.href + " #customer"; }, width:"650px", height:"600px", onLoad: function() {
+        $('#cboxClose').remove();
+    }});
+    
+    
+    $(".block").each(function(idx, val) {
+      var href = $(this).find('a:first').attr("href")
+      $(this).find('.home-block-image:first').wrap( "<a href='" +  href + "'></a>" );
+    });
+    
+    
+    function subscribe($form, callback) {
+        $.ajax({
+            type: $form.attr('method'),
+            url: $form.attr('action'),
+            data: $form.serialize(),
+            cache       : false,
+            dataType    : 'json',
+            contentType: "application/json; charset=utf-8",
+            error       : function(err) { alert("Could not connect to the registration server. Please try again later."); },
+            success     : function(data) { callback($form, data)}
+        });
+    }
+    
+    $("body").on("submit", "#mc-embedded-subscribe-form", function(e) { 
+      e.preventDefault();
+      subscribe($(this), function($form, data) {
+        console.log(data);
+          if (data.result != "success") {
+              var chunks = data.msg.split(" - ");
+              if(chunks[1]) { var msg = chunks[1]; } else { var msg = data.msg; }
+              $form.find(".errors").html(msg);
+          } else {
+            $form.find(".errors").html("");
+            $form.find("input[name='EMAIL']").val("");
+            var tmp = $form.html();
+            $form.html('Thank you for subscribing!  Enjoy your 10% off.');
+            setTimeout(function() { $form.html(tmp) }, 10000);
+          }
+      });
+    });
+    
+    $("body").on("submit", "#page-subscribe-form", function(e) { 
+      e.preventDefault();
+      subscribe($(this), function($form, data) {
+        console.log(data);
+          if (data.result != "success") {
+              var chunks = data.msg.split(" - ");
+              if(chunks[1]) { var msg = chunks[1]; } else { var msg = data.msg; }
+              $form.find(".errors").html(msg);
+          } else {
+              $form.html('Thank you for subscribing!  Enjoy your 10% off.');
+              setTimeout(function() { $.colorbox.close(); }, 3000);
+          }
+      });
+    });
+    
+    $.colorbox({href:function(){ return "/pages/subscribe" + " #customer"; }, width:"650px", height:"350px", scrolling: false, onLoad: function() {
         $('#cboxClose').remove();
     }});
   });
