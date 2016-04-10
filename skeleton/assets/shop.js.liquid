@@ -61,11 +61,13 @@ jQuery(function($) {
   /* Prepare to have floated images fill the width of the design on blog pages on small devices. */
   /*==========================*/ 
     
+  /*
   var images = $('.article img').load(function() {
     var src = $(this).attr('src').replace(/_grande\.|_large\.|_medium\.|_small\./, '.');
     var width = $(this).width();
     $(this).attr('src', src).attr('width', width).removeAttr('height');
   });
+  */
   
   /* Update main product image when a thumbnail is clicked. */
   /*==========================*/
@@ -78,9 +80,12 @@ jQuery(function($) {
     var height = "auto";
     $.fn.overflown=function(){var e=this[0];return e.scrollHeight>e.clientHeight||e.scrollWidth>e.clientWidth;}
 
-    if($("#product-description").overflown()) {
-      $("#readmore").show();
+    if($("#product-description").length > 0) {
+      if($("#product-description").overflown()) {
+        $("#readmore").show();
+      }
     }
+    
   })
   
   
@@ -98,4 +103,16 @@ jQuery(function($) {
     $("#readless").hide();
     $("#readmore").show();
   });
+  
+  /*
+  fx.base = "USD";
+  fx.rates = {
+  	"EUR" : 0.745101, // eg. 1 USD === 0.745101 EUR
+  	"GBP" : 0.647710, // etc...
+  	"HKD" : 7.781919,
+  	"USD" : 1,        // always include the base rate (1:1)
+  }
+  
+  alert(fx.convert(1000, {from: "USD", to: "HKD"}));
+  */
 });

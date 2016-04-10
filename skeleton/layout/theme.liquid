@@ -51,7 +51,6 @@
 
   <!-- fjord-related JS -->
   {{ 'main.js' | asset_url | script_tag }}
-  
 
   {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
   <script>jQuery('html').removeClass('no-js').addClass('js');</script>
@@ -60,7 +59,7 @@
     
   {{ '//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.3/jquery.colorbox.js' | script_tag }}
 
-  
+  {{ 'money.js' | asset_url | script_tag }}
   <!-- Product ZOOM -->
   {{ 'zoom.js' | asset_url | script_tag }}
 </head>

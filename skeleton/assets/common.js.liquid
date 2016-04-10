@@ -1,12 +1,12 @@
 jQuery(function($) {
   $(document).ready(function() {
-    $("#customer_login_link").colorbox({href:function(){ return this.href + " #customer"; }, width:"450px", height:"400px", onLoad: function() {
-        $('#cboxClose').remove();
-    }});
+  
+  
+  
+  
+    $("#customer_login_link").colorbox({href:function(){ return this.href + " #customer"; }, width:"450px", height:"400px"});
     
-    $("#customer_register_link").colorbox({href:function(){ return this.href + " #customer"; }, width:"650px", height:"600px", onLoad: function() {
-        $('#cboxClose').remove();
-    }});
+    $("#customer_register_link").colorbox({href:function(){ return this.href + " #customer"; }, width:"650px", height:"600px"});
     
     
     $(".block").each(function(idx, val) {
@@ -23,7 +23,7 @@ jQuery(function($) {
             cache       : false,
             dataType    : 'json',
             contentType: "application/json; charset=utf-8",
-            error       : function(err) { alert("Could not connect to the registration server. Please try again later."); },
+            error       : function(err) { $form.html('We are experiencing some issues, please try again!') },
             success     : function(data) { callback($form, data)}
         });
     }
@@ -61,8 +61,9 @@ jQuery(function($) {
       });
     });
     
-    $.colorbox({href:function(){ return "/pages/subscribe" + " #customer"; }, width:"650px", height:"350px", scrolling: false, onLoad: function() {
-        $('#cboxClose').remove();
-    }});
+    if($(".template-index").length > 0) {
+      $.colorbox({href:function(){ return "/pages/subscribe" + " #customer"; }, width:"650px", height:"350px", scrolling: false});
+    }
+    
   });
 });

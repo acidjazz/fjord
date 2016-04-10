@@ -2,6 +2,8 @@
   {% assign col_type = 'featured' %}
 {% elsif collections[collection_type].products.size < 1 %}
   {% assign col_type = 'featured' %}
+{% else %}
+  {% assign col_type = collection_type %}
 {% endif %}
 
 <div class="recommendations">
