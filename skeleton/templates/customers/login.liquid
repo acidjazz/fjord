@@ -1,7 +1,7 @@
 <!-- /templates/customers/login.liquid -->
 
 <div id="customer">
-  <div class="inner">
+  <div class="inner login-block">
 
     {% comment %}
       If a user has successfully requested a new password, the form.posted_successfully? variable
@@ -70,20 +70,16 @@
 
     </div>
 
-    {% comment %}
-      If accounts are set as optional, the following will be shown as an option
-      during checkout, not on the default /login page.
-    {% endcomment %}
-    {% if shop.checkout.guest_login %}
-      <hr>
-
-      <h2>{{ 'customer.login.guest_title' | t }}</h2>
-
-      {% form 'guest_login' %}
-        <input type="submit" class="btn" value="{{ 'customer.login.guest_continue' | t }}">
-      {% endform %}
-    {% endif %}
-
   </div>
+  {% if shop.checkout.guest_login %}
+    <div class="inner login-block" id="cont-guest">
+
+    <h2>{{ 'customer.login.guest_title' | t }}</h2>
+
+    {% form 'guest_login' %}
+      <input type="submit" class="btn" value="{{ 'customer.login.guest_continue' | t }}">
+    {% endform %}
+    </div>
+  {% endif %}
 
 </div>

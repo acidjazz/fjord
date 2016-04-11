@@ -61,8 +61,19 @@ jQuery(function($) {
       });
     });
     
-    if($(".template-index").length > 0) {
-      $.colorbox({href:function(){ return "/pages/subscribe" + " #customer"; }, width:"650px", height:"350px", scrolling: false});
+    /*&& !$.cookie('subscribe_popup')*/
+    if($(".template-index").length > 0 ) {
+      $.colorbox({href:function(){ 
+        return "/pages/subscribe" + " #customer"; }, 
+      width:"800px", 
+      height:"675px", 
+      scrolling: false, 
+      onClosed: function() {
+        var date = new Date();
+        var minutes = 60;
+        date.setTime(date.getTime() + (minutes * 60 * 1000));
+        $.cookie("subscribe_popup", "1", { expires: date });
+      }});
     }
     
   });

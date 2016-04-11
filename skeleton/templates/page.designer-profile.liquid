@@ -33,17 +33,23 @@
 
 {% if collections[page.handle].description.size > 0 %}
 <div class="rte clearfix">
+<div class="left">
   <div class="collection-desc-header">
     <h2>Meet the ladies behind</h2>
     <h1>{{ page.title }}</h1>
   </div>
   {{ page.content }}
 </div>
+
+<div class="left designer-image">
+{{ page.metafields.custom_fields.extra_image }}
+</div>
+</div>
 {% endif %}
 <div class="recommendations">
   <h7>LIKE WHAT YOU HEAR? SHOP THE CAUSE</h7>
   <ul class="grid clearfix">
-  {% for product in collections[page.handle].products %}
+  {% for product in collections[page.handle].products limit:4 %}
     {% include 'product-grid-item' with products_per_row %}
   {% else %}
     <p>There are no products in this view.</p>

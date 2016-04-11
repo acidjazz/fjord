@@ -10,6 +10,18 @@
   {% endif %}
 {% endfor %}
 
+{% for link in linklists.clothing-brands.links %}
+  {% if link.url contains collection.handle %}
+    {% assign side_nav_type = "clothing" %}
+  {% endif %}
+{% endfor %}
+
+{% for link in linklists.clean-beauty-brands.links %}
+  {% if link.url contains collection.handle %}
+    {% assign side_nav_type = "clean-beauty" %}
+  {% endif %}
+{% endfor %}
+
 {% if collection.handle == "all" %}
   {% assign side_nav_type = "all" %}
 {% endif %}

@@ -748,6 +748,12 @@ is below it. */
   margin-top: .2 * $base-font-size;
   @extend .inline-collapse;  
 }
+
+#searchresults li {
+  margin: 20px 0;
+  clear: none;
+}
+
 /* Hiding search form in header on small screens */
 @media (max-width: $breakpoint-small-screen) {
   header .search-form {
@@ -817,7 +823,7 @@ footer {
 #cboxPrevious:hover{background-position:0px -25px;}
 #cboxNext{background-position:-25px 0px; right:22px;}
 #cboxNext:hover{background-position:-25px -25px;}
-#cboxClose{height:25px; width:25px; background-position:-25px 0px; right:0; top: 0px}
+#cboxClose{height:25px; width:25px; background-position:-25px 0px; right:10px; top: 10px}
 #cboxClose:hover{background-position:-25px -25px;}
 .cboxSlideshow_on #cboxPrevious, .cboxSlideshow_off #cboxPrevious{right:66px;}
 .cboxSlideshow_on #cboxSlideshow{background-position:-75px -25px; right:44px;}

@@ -1,0 +1,42 @@
+.template-article, #latest-news
+  > .container
+    > #main
+      position relative
+      h2.article-title
+        text-align center
+        padding-bottom 50px
+      .fjord-news
+        font: f.copy11
+        text-align center
+        position relative
+        width 350px
+        margin auto
+        > div
+          padding 25px 75px
+          display inline-block
+        &:before, &:after
+          content ''
+          position absolute
+          display inline-block
+          width 75px
+          top 50%
+          height 0
+          border-top: 1px solid c.grey2
+        &:before
+          left 0
+        &:after
+          right 0
+      .article-col1
+        width 60%
+        .rte 
+          font: f.copy9
+          letter-spacing 0px
+          line-height 35px
+          img
+            width 100% 
+          h1
+            font: f.h16
+            line-height 40px
+        .article-col2
+          width 40%
+        

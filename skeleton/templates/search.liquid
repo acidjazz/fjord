@@ -14,13 +14,6 @@ selectors inside search.css.
 
 <div id="searchresults">
   
-  <div class="centered">
-    <form action="/search" method="get" class="search-form" role="search">
-      <input name="q" type="search" id="search-field" placeholder="Search store..." value="{{ search.terms | escape }}" />
-      <input type="submit" id="search-submit" value="Search" />
-    </form>
-  </div>
-  
   {% comment %}
   search.performed is false when accessing the /search page without a 'q' parameter set
   in the URL. A shop-owner can link to the /search page from one of his link lists.
@@ -42,21 +35,39 @@ selectors inside search.css.
     {% if search.results_count == 0 %}  
     <p class="centered">Your search for "{{ search.terms }}" did not yield any results.</p>              
     {% else %}
-    <ol>
+    <ul class="grid clearfix">
       {% for item in search.results %}      
-      <li class="clearfix">
-        <h8>{{ item.title | link_to: item.url }}</h8>
-        {% if item.vendor %}
-        <div class="result-image">
-          <a href="{{ item.url }}" title="{{ item.title | escape }}">
-            {{ item | img_url: 'small' | img_tag: item.featured_image.alt }}
+      <li class="four-per-row {% cycle 'last': '', '', '', ' last-in-row' %} centered">
+
+        <div class="prod-image-wrap">  
+          <a href="{{ item.url | within: collection }}">
+            <img src="{{ item | img_url: 'grande' }}" />
           </a>
-        </div>
+        </div><!-- .prod-image-wrap -->
+        {% if disable_product_copy != true %}
+        <div class="prod-caption">
+            <h6 class="col-title">
+              {{ item.vendor }}
+            </h6>
+            <div class="prod-title">
+              <a href="{{ item.url | within: collection }}">
+                {{ item.title }}
+              </a>
+            </div>
+            <div class="prod-price">
+              {% if item.price_varies %}From{% endif %}
+              {{ item.price | money }}
+              {% if on_sale %}
+              <s class="compare-at-price">{{ item.compare_at_price | money }}</s>
+              {% endif %}
+            </div>
+            
+            <span class="shopify-product-reviews-badge" data-id="{{ item.id }}"></span>
+        </div><!-- .prod-caption -->
         {% endif %}
-        <span>{{ item.content | strip_html | truncatewords: 40 | highlight: search.terms }}</span>        
       </li>
       {% endfor %}
-    </ol>
+    </ul>
     {% endif %}    
     
     {% if paginate.pages > 1 %}

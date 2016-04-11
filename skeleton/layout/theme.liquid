@@ -58,14 +58,15 @@
   {{ 'common.js'  | asset_url | script_tag }}
     
   {{ '//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.3/jquery.colorbox.js' | script_tag }}
-
+  {{ '//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js' | script_tag }}
+  
   {{ 'money.js' | asset_url | script_tag }}
   <!-- Product ZOOM -->
   {{ 'zoom.js' | asset_url | script_tag }}
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
-
+  <div id="top-bar"> </div>
   <div class="container">
 
     <header class="row">
@@ -119,6 +120,7 @@
         <form action="/search" method="get" class="search-form right" role="search">
           <input name="q" type="search" id="search-field" placeholder="Search.." value="{{ search.terms | escape }}" />
           <label>
+            <input type="hidden" name="type" value="product">
             <input type="submit" id="search-submit" value="Search" />
             <div class="search-form-submit">
               {% include "search-svg" %}
@@ -161,48 +163,29 @@
       {% endcomment %}
       {{ content_for_layout }}
     </div>
-
-    <!--<footer>
+  </div><!-- end of #container -->
   
-      {% if linklists.footer.links.size > 0 %}
-      <p role="navigation">
-      {% for link in linklists.footer.links %}
-        <a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
-      {% endfor %}
-      </p>
-      {% endif %}
-      
-      {% unless shop.enabled_payment_types == empty %}
-	  <div class="payment-types">
-        {% for type in shop.enabled_payment_types %}
-        <img width="40" src="{{ type | payment_type_img_url }}" />
-        {% endfor %}
-      </div>
-      {% endunless %}
-      
-      <p role="contentinfo" class="small-print">Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. {{ powered_by_link }}.</p>
-
-    </footer>-->
-    
+  <div id="footer-bar">
     <footer>
       <div class="left footer_blocks">
         <div class="left">
-          <h6>ABOUT</h6>
+          <h18>ABOUT</h18>
           <ul>
-            <li><a href="#">What is Fjordlife</a></li>
-            <li><a href="#">Fjordlife Partners With</a></li>
+            {% for link in linklists.about.links %}
+              <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+            {% endfor %}
           </ul>
           </div>
         <div class="left">
-          <h6>FIND US</h6>
+          <h18>FIND US</h18>
           <ul>
-            <li><a href="#">Affiliate Program</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Press</a></li>
+            {% for link in linklists.find-us.links %}
+              <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+            {% endfor %}
           </ul>
         </div>
         <div class="left">
-          <h6>HELP</h6>
+          <h18>HELP</h18>
           <ul>
           {% for link in linklists.help.links %}
             <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
@@ -210,10 +193,11 @@
           </ul>
         </div>
         <div class="left">
-          <h6>POLICIES</h6>
+          <h18>POLICIES</h18>
           <ul>
-            <li><a href="#">Terms of Use</a></li>
-            <li><a href="#">Privacy Policy</a></li>
+            {% for link in linklists.policies.links %}
+              <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+            {% endfor %}
           </ul>
         </div>
       </div>
@@ -221,7 +205,7 @@
                 <!-- Begin MailChimp Signup Form -->
 
       <div id="mc_embed_signup" class="subscribe">
-      <form action="//jeffizzle.us13.list-manage.com/subscribe/post-json?u=0725047d0743419ef943cdd0f&id=2a6a16afb5&c=?" method="get" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <form action="//fjordlife.us12.list-manage.com/subscribe/post-json?u=6a572de1881f30db3082255a6&amp;id=c8f994ff35&c=?" method="get" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
           <div id="subscribe_inner">
           <div class="errors"></div>
       	  <input type="email" value="" name="EMAIL" class="email" placeholder="Email" required>
@@ -241,13 +225,12 @@
       </div>
       
     </footer>
-
+    
     {% comment %}Shopify does not support Internet Explorer 6 nor 7. It does encourage themes to support IE8 until the end of 2014.{% endcomment %}
     <!--[if lt IE 8]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
-    
-  </div><!-- end of #container -->
+    </div>
   
   {{ 'shop.js'  | asset_url | script_tag }}
 

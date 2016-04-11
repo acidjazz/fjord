@@ -9,7 +9,8 @@ vendor-prefixes ?= webkit moz o ms official
 
 .container
   padding 0
-
+html
+  background-color: c.grey1
 body
   letter-spacing 1px
   font: f.copy1
@@ -18,13 +19,18 @@ body
   margin 0
   line-height 25px
   color: c.grey2
+  position relative
 
 a
-  color: c.grey1
+  color: c.grey2
   &:hover
     color: c.grey1
 .errors
   color red
+.hr
+  border-top: 1px solid c.grey1
+  margin-top: 50px
+  padding-top: 50px
 #main 
   margin-left 15px
   margin-right 15px
@@ -41,10 +47,11 @@ h3
 h4
   font: f.h4
   margin 0
-h5
+h5 
   font: f.h5
   margin 0
 h6
+  font: f.f6
   letter-spacing 3px
   margin 0
 h7
@@ -99,19 +106,36 @@ h16
   font: f.h16
   letter-spacing 1px
   line-height 40px
-   
+
+h17
+  display block
+  font: f.h17
+  letter-spacing 2px 
+  line-height 40px
+
+h18
+  display block
+  font: f.h18
+  letter-spacing 2px
+  line-height 30px
+         
 .copy8
   font: f.copy8
   
-footer 
-  padding 25px 50px 
+footer
+  margin:auto
+  max-width 1280px
+  margin-top 50px
+  padding 25px 0px 
   color: c.grey2
-  background: c.grey1
   text-align left
+  position relative 
+  background: c.grey1
+  z-index 10
   .footer_blocks
     width 57%
     > div
-      padding-right 30px
+      padding-right 60px
   > .right
     width 40%
     > #mc_embed_signup > form
@@ -124,17 +148,29 @@ footer
   > .copyright
     > .footer-small
       font: f.copy7 
-    
+
+#footer-bar
+  background: c.grey1
+  width 100%
+  z-index 5
+  
 .container
   padding 0px
   /* font: f.copy7 */
 
+#top-bar
+  width 100%
+  height 44px
+  background: c.grey1
+  position absolute
+  
 .fj-topnav
   width 60%
   height 44px
 .fj-cart
   width 40%
   height 44px
+  position relative
 
 .fj-header-logo
   display block
@@ -187,6 +223,7 @@ header.row
       > ul
         > li
           padding 10px
+          padding-right 20px
           &.active
             background-color: c.white1
         > li > a
@@ -222,23 +259,27 @@ header.row
         font: f.h5
 
 @import designer
+@import blog
+
 .recommendations
   clear both
 #fjordlife
   .prod-image-wrap
-    height 176px
+    height auto
     min-width 176px
     > a > img
-      width 176px
+      width auto
+      padding-bottom 0 
 .prod-image-wrap
-        height 200px
-        min-width 200px
+        height 250px
+        min-width 250px
         overflow hidden
         text-align left
         > a > img
-          width 200px
+          width 250px
       .prod-caption
         padding-top 10px
+        padding-bottom 20px
         font: f.copy5
         color: c.grey2
         text-transform uppercase
@@ -257,9 +298,6 @@ header.row
 .rte
   strong
     font: f.copy6
-  img
-    float left
-    padding-right 15px
     
 .login
   display none

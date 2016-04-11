@@ -111,14 +111,16 @@
   <div class="blog block">
     <h8>FJORDLIFE BLOG</h8>
     <div class="col3-content"> 
-      {% for article in blogs.news.articles limit:2 %}
+      {% for article in blogs.news.articles limit:3 %}
       <div class="article">
           <div class="left blog-img">
             <img src="{{ article | img_url: 'large' }}">
           </div>
           <p>
             {{ article.title }}
+            <time pubdate datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%b %d, %Y' }}</time>
           </p>
+          
           <p>
             <a href="{{ article.url }}">READ MORE</a>
           </p>

@@ -24,42 +24,20 @@ body.template-collection, body.template-page
         font-size 20px
       h1
         text-transform uppercase
+        padding-bottom 30px
       > .rte
-        > p
-          display none 
-        > table
+        padding-bottom 30px
+        > .left
           width 50%
-          float left
-          > tbody
-            > tr
-              border 0
-              > td
-                color: c.grey2
-                vertical-align top
-                strong
-                  font: f.copy6
+        > .designer-image
+          padding-right 0
+          > img
+            padding-right 0
       .recommendations
         text-align center
-table > p
-  &:first-child
-    border 1px solid red 
+      
 
-.parallax-container
-  width 100%
-  position relative
-  overflow hidden
-  height 400px
-.parallax
-  left 0
-  top 0
-  position absolute
-  white-space nowrap
-  > li
-    display inline-block
-    > div
-      background-size cover
-      width 400px
-      height 300px
+
 
 #designer_list
   > a
@@ -72,7 +50,8 @@ table > p
       background-color: c.grey2
       &:hover > .designer_image
         opacity .5
-        background-position center center
+      &:hover > .designer_image > img
+        transform: scale(1.2);
       &:hover > .designer_text > h11
         opacity 1
         top 40%
@@ -85,7 +64,9 @@ table > p
         height 600px
         opacity 1
         transition opacity 1s
-        transition background-position .5s
+        > img
+          transition transform 1s
+          height 100%
       > .designer_text
         width 80%
         height 600px
@@ -115,9 +96,12 @@ table > p
               display inline-block
               padding 2px 5px
               color: c.grey1
+              border-top: 2px solid c.grey1
+              border-bottom: 2px solid c.grey1
+              padding 5px 0
               &:hover
                 color: c.grey1
-                border: 1px solid c.grey1
+                
     > .left
       margin-right 5px
       padding: 0
