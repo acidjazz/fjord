@@ -1,31 +1,33 @@
-{% for link in linklists.clothing.links %}
-  {% if link.url contains collection.handle %}
-    {% assign side_nav_type = "clothing" %}
-  {% endif %}
-{% endfor %}
+{% if side_nav_type == blank %}
+  {% for link in linklists.clothing.links %}
+    {% if link.url contains collection.handle %}
+      {% assign side_nav_type = "clothing" %}
+    {% endif %}
+  {% endfor %}
 
-{% for link in linklists.clean-beauty.links %}
-  {% if link.url contains collection.handle %}
-    {% assign side_nav_type = "clean-beauty" %}
-  {% endif %}
-{% endfor %}
+  {% for link in linklists.clean-beauty.links %}
+    {% if link.url contains collection.handle %}
+      {% assign side_nav_type = "clean-beauty" %}
+    {% endif %}
+  {% endfor %}
 
-{% for link in linklists.clothing-brands.links %}
-  {% if link.url contains collection.handle %}
-    {% assign side_nav_type = "clothing" %}
-  {% endif %}
-{% endfor %}
+  {% for link in linklists.clothing-brands.links %}
+    {% if link.url contains collection.handle %}
+      {% assign side_nav_type = "clothing" %}
+    {% endif %}
+  {% endfor %}
 
-{% for link in linklists.clean-beauty-brands.links %}
-  {% if link.url contains collection.handle %}
-    {% assign side_nav_type = "clean-beauty" %}
-  {% endif %}
-{% endfor %}
+  {% for link in linklists.clean-beauty-brands.links %}
+    {% if link.url contains collection.handle %}
+      {% assign side_nav_type = "clean-beauty" %}
+    {% endif %}
+  {% endfor %}
 
-{% if collection.handle == "all" %}
-  {% assign side_nav_type = "all" %}
+  {% if collection.handle == "all" %}
+    {% assign side_nav_type = "all" %}
+  {% endif %}
+
 {% endif %}
-
 {% if side_nav_type == "clothing" %}
 <div class="side-nav">
   <h8 class="sidebar-header">CATEGORY</h8>

@@ -42,11 +42,11 @@
           </a>
         </td>
         <td>
-          <h12>
+          <h5>
             <a href="{{ collection_url }}{{ item.url }}">
             {{ item.title }}
             </a>
-          </h12>
+          </h5>
           {% comment %}
           Line Item Properties
           {% endcomment %}
@@ -116,9 +116,21 @@
 
 {% else %}
 
-<div>
-  <h2 class="gamma">It appears that your cart is currently empty!</h2>
+<div class="left col1">
+  <h17>It appears that your cart is currently empty!</h17>
   <h3 class="delta">You can continue browsing <a href="/collections/all">here</a>.</h3>
+</div>
+<div class="left col2">
+  <h8>SHOP OUR FAVORITES</h8>
+  <div class="col3-content">
+    <ul class="grid clearfix">
+    {% for product in collections.featured.products limit:4 %}
+      {% include 'product-grid-item' with products_per_row %}
+    {% else %}
+      <p>There are no products in this view.</p>
+    {% endfor %}
+    </ul>
+  </div>
 </div>
 
 {% endif %}

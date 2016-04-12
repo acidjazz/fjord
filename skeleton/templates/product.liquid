@@ -7,8 +7,15 @@
 {% assign products_per_row = numbers[products_per_row] | strip | append: '-per-row' %}
 {% assign product_vendor_handle = product.vendor | handle %}
 
+{% assign product_tags_string = product.tags | join ' ' %}
+{% if product_tags_string contains 'clothing' %}
+  {% assign side_nav_type = "clothing" %}
+{% else %}
+  {% assign side_nav_type = "clean-beauty" %}
+{% endif %}
+
 <div class="padding"></div>
-{% include 'side-nav' %}
+{% include 'side-nav' with side_nav_type %}
 <div class="left-col">
   <div class="product" itemscope itemtype="http://schema.org/Product">
   
@@ -66,7 +73,7 @@
           {% assign vendor_url = product.vendor | url_for_vendor %}
         {% endif %}
         <h8 itemprop="brand" class="delta product-vendor">{{ product.vendor }}</h8>
-        <h12 itemprop="name" class="product-title">{{ product.title }}</h12>
+        <h5 itemprop="name" class="product-title">{{ product.title }}</h5>
         <div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="delta">
           <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
           {% if product.available %}

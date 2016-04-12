@@ -104,6 +104,14 @@ jQuery(function($) {
     $("#readmore").show();
   });
   
+  $("body").on("click", "#RecoverPassword", function() {
+    $("#RecoverPasswordForm").show();
+  });
+  
+  $("body").on("click", "#HideRecoverPasswordLink", function() {
+    $("#RecoverPasswordForm").hide();
+  });
+  
   /*
   fx.base = "USD";
   fx.rates = {
