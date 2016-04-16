@@ -35,7 +35,40 @@
 <div class="rte clearfix">
 <div class="left">
   <div class="collection-desc-header">
-    <h2>Meet the ladies behind</h2>
+    {% if page.title == 'ASTER & BAY' %}
+      <h2>Meet the duo behind</h2>
+    {% endif %}
+    {% if page.title == 'Baggu' %}
+      <h2>Meet the ladies behind</h2>
+    {% endif %}
+    {% if page.title == 'Carleen' %}
+      <h2>Meet the gal behind</h2>
+    {% endif %}
+    {% if page.title == 'Charlotte Stone' %}
+      <h2>Meet the lady behind</h2>
+    {% endif %}
+    {% if page.title == 'Groceries Apparel' %}
+      <h2>Meet the duo behind</h2>
+    {% endif %}
+    {% if page.title == 'HERBIVORE BOTANICALS' %}
+      <h2>Meet the duo behind</h2>
+    {% endif %}
+    {% if page.title == 'KBELO' %}
+      <h2>Meet the gal behind</h2>
+    {% endif %}
+    {% if page.title == 'Ormana' %}
+      <h2>Meet the gal behind</h2>
+    {% endif %}
+    {% if page.title == 'OSEI DURO' %}
+      <h2>Meet the duo behind</h2>
+    {% endif %}
+    {% if page.title == 'VEJA' %}
+      <h2>Meet the duo behind</h2>
+    {% endif %}
+    {% if page.title == 'Yoke Trade' %}
+      <h2>Meet the gal behind</h2>
+    {% endif %}
+
     <h1>{{ page.title }}</h1>
   </div>
   {{ page.content }}
