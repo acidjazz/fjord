@@ -61,6 +61,7 @@ gulp.task('serve', function() {
   gulp.watch('../dat/**/*', ['objectus','stylus']);
   gulp.watch("assets/*.scss", ['sass']);
   gulp.watch("assets/*.otf", ['fonts']);
+  gulp.watch("assets/*.jpg", ['images']);
   gulp.watch("sty/*.styl", ['objectus', 'stylus']);
   gulp.watch("cof/*.coffee", ['objectus', 'coffee']);
 });
@@ -81,6 +82,24 @@ gulp.task('fonts', function() {
     }))
     .pipe(browserSync.stream());
 });
+
+
+gulp.task('images', function() {
+  return gulp.src("assets/*.jpg")
+    .pipe(gulp.dest("assets/"))
+    .pipe(shell([
+      'theme upload <%= f(file.path) %>'
+    ], {
+      templateData: {
+        f: function (s) {
+          // cut away absolute path of working dir for 'theme' cmd to work
+          return s.replace(process.cwd() + '/', '')
+        }
+      }
+    }))
+    .pipe(browserSync.stream());
+});
+
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
