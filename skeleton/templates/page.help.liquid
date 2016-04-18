@@ -1,8 +1,20 @@
 <div class="help">
   <div class="side-nav">
+    <h8 class="sidebar-header">FIND US</h8>
+    <ul>
+    {% for link in linklists.find-us.links %}
+      <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+    {% endfor %}
+    </ul>
     <h8 class="sidebar-header">HELP</h8>
     <ul>
     {% for link in linklists.help.links %}
+      <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
+    {% endfor %}
+    </ul>
+    <h8 class="sidebar-header">POLICIES</h8>
+    <ul>
+    {% for link in linklists.policies.links %}
       <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
     {% endfor %}
     </ul>

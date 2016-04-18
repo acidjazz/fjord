@@ -61,8 +61,7 @@ jQuery(function($) {
       });
     });
     
-    /*&& !$.cookie('subscribe_popup')*/
-    if($(".template-index").length > 0 ) {
+    if($(".template-index").length > 0 && !$.cookie('subscribe_popup')) {
       $.colorbox({href:function(){ 
         return "/pages/subscribe" + " #customer"; }, 
       width:"800px", 

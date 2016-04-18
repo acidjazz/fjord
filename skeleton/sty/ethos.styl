@@ -7,9 +7,10 @@
     background-size cover
     background-position center
     background-repeat no-repeat
+    background-size cover
     width 100%
     height 400px
-    position relative 
+    position relative
     > .header_copy
       width 75%
       text-align center 
@@ -24,6 +25,7 @@
   #header_2 > .header_copy
     width 90%
   .ethos_statement
+    position relative
     padding-top 50px
     padding-bottom 50px
     width 85%
@@ -32,8 +34,65 @@
     > .author
       padding-top 20px
       font: f.h11
+  .ethos_offers
+    max-width 960px
+    margin auto
+    padding 50px 0
+    > h16
+      padding 0 0 0 20px
+    > .ethos_offer
+      float left
+      width 33%
+      padding 20px
+  .ethos_collage
+    position relative
+    max-width 960px
+    margin auto
+    > .ethos_collage_copy
+      float left
+      width 394px
+    > .ethos_collage_pic1
+      background-image: url('http://cdn.shopify.com/s/files/1/1087/6326/t/4/assets/collage2.jpg?16546330012253618270')
+      float right
+      width 394px
+      height 350px
+      background-repeat no-repeat
+    > .ethos_collage_pic2
+      background-image: url('http://cdn.shopify.com/s/files/1/1087/6326/t/4/assets/collage1.jpg?16546330012253618270')
+      float left
+      width 502px
+      height 350px
+      background-repeat no-repeat
+      margin -80px 0 0 0
+    > .ethos_collage_pic3
+      background-image: url('http://cdn.shopify.com/s/files/1/1087/6326/t/4/assets/collage3.jpg?16546330012253618270')
+      float right
+      width 271px
+      height 229px
+      background-repeat no-repeat
+      margin 60px 0 0 0px
+    > .ethos_border
+      position absolute
+      border: 2px solid c.grey1
+      &.ethos_border_1
+        width 394px
+        height 350px
+        right -30px
+        top 30px
+      &.ethos_border_2
+        width 502px
+        height 350px
+        left 20px
+        bottom -20px
+      &.ethos_border_3
+        width 271px
+        height 229px
+        bottom -30px
+        right -30px
+
   .ethos_block
     width 95%
+    max-width 960px
     margin auto
     padding-bottom 50px
     -webkit-columns 2 360px
@@ -56,7 +115,7 @@
     > .block_image
       background-size cover
       background-repeat no-repeat
-      width 100%
+      width 500px
     > #ethos_image
       background-position 0px -60px
       background-image url('https://cdn.shopify.com/s/files/1/1087/6326/files/slide-2.jpg?9355096147740056682')
@@ -65,9 +124,10 @@
       background-image url('https://cdn.shopify.com/s/files/1/1087/6326/files/slide-5.jpg?9355096147740056682')
       height 500px
     > #waterfall_image
-      background-position 0px -60px
+      background-position 100% 0%
       background-image url('https://cdn.shopify.com/s/files/1/1087/6326/files/fjord-waterfall.png?14821091821338818993')
       height 500px
+
   .ethos_cols
     padding-top 50px
     width 100%
@@ -92,3 +152,26 @@
       border 0
       padding 15px 30px
     
+@media all and (min-width: 1px) and (max-width: 1000px)
+  .ethos
+    > .ethos_collage
+      > .ethos_collage_copy
+        width auto
+        float none
+        padding 20px 0
+      > .ethos_collage_pic
+        float none
+        width 90%
+        margin 10px auto
+        &.ethos_collage_pic2
+          background-position 50% 0
+      > .ethos_border
+        display none
+    > .ethos_offers
+      > .ethos_offer
+        float none
+        width auto
+    > .ethos_block
+      > #waterfall_image
+        width 90%
+        margin 0 0 20px 0
