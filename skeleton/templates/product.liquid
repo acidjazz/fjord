@@ -132,7 +132,7 @@
           <div class="social">
           <a href="javascript:window.open('https://www.facebook.com/sharer/sharer.php?u='+escape(window.location.href)+'&t='+document.title);" target="_blank" alt="Share on Facebook"><span class="shopify-social-icon-facebook{{ settings.social_icons_style }}"></span></a>
           <a href="javascript:window.open('https://twitter.com/share?url='+escape(window.location.href));" title="Follow us on Twitter" target="_blank"><span class="shopify-social-icon-twitter{{ settings.social_icons_style }}"></span></a>
-          <a href="javascript:window.open('http://pinterest.com/pin/create/button/?url='+escape(window.location.href));" title="Pin It" target="_blank"><span class="shopify-social-icon-pinterest{{ settings.social_icons_style }}"></span></a>
+          <a href="javascript:window.open('https://pinterest.com/pin/create/button/?url='+escape(window.location.href) + '&media=' + escape('{{ featured_image | img_url: 'grande' }}') + '&description=' + escape('{{ product.title}}'));" title="Pin It" target="_blank"><span class="shopify-social-icon-pinterest{{ settings.social_icons_style }}"></span></a>
           </div>
           <div class="label">SHARE</div>
         </div>

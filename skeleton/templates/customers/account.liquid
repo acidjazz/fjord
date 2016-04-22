@@ -13,7 +13,7 @@
 
   <div>
 
-    <div>
+    <div class="account_orders">
       <h5>{{ 'customer.orders.title' | t }}</h5>
 
       {% comment %}
@@ -61,10 +61,12 @@
       {% endpaginate %}
     </div>
 
-    <div class="grid__item one-third medium-down--one-whole">
-      <h5>{{ 'customer.account.details' | t }}</h5>
-
-      <h11>{{ customer.name }}</h11>
+    <div class="account_details">
+      <div class="customer_header">
+      <b>{{ 'customer.account.details' | t }}</b>
+      </div>
+      <div>
+      <b>{{ customer.name }}</b>
 
       {% if customer.default_address != nil %}
         <p>
@@ -96,7 +98,7 @@
         </p>
 
       {% endif %}
-
+      </div>
       <p><a href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
     </div>
 
