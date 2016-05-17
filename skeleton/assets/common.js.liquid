@@ -4,9 +4,9 @@ jQuery(function($) {
   
   
   
-    $("#customer_login_link").colorbox({href:function(){ return this.href + " #customer"; }, width:"450px", height:"450px"});
+    $("#customer_login_link").colorbox({href:function(){ return this.href + " #customer"; }, width:"100%", height:"100%",maxWidth:"450px", maxHeight:"450px"});
     
-    $("#customer_register_link").colorbox({href:function(){ return this.href + " #customer"; }, width:"650px", height:"600px"});
+    $("#customer_register_link").colorbox({href:function(){ return this.href + " #customer"; }, width:"100%", height:"100%", maxWidth:"650px", maxHeight:"600px"});
     
     
     $(".block").each(function(idx, val) {
@@ -64,8 +64,10 @@ jQuery(function($) {
     if($(".template-index").length > 0 && !$.cookie('subscribe_popup')) {
       $.colorbox({href:function(){ 
         return "/pages/subscribe" + " #customer"; }, 
-      width:"800px", 
-      height:"675px", 
+      width:"100%", 
+      height:"100%",
+      maxWidth:'800px', 
+      maxHeight:'675px',
       scrolling: false, 
       onClosed: function() {
         var date = new Date();

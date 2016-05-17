@@ -3,7 +3,8 @@
     text-decoration underline
   > .inner
     text-align left
-    width 400px
+    width 100%
+    max-width 400px
     margin auto
     padding 15px
     position relative
@@ -113,3 +114,10 @@
     text-transform uppercase
   .grid
     margin 0
+  
+@media all and (min-width: 1px) and (max-width: 1000px)
+  #customer
+    .account_details 
+      width 100%
+    .account_orders
+      width 100%

@@ -28,7 +28,7 @@
                 <tr>
                   <th>{{ 'customer.orders.order_number' | t }}</th>
                   <th>{{ 'customer.orders.date' | t }}</th>
-                  <th>{{ 'customer.orders.payment_status' | t }}</th>
+                  <th class="hide-mobile">{{ 'customer.orders.payment_status' | t }}</th>
                   <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
                   <th>{{ 'customer.orders.total' | t }}</th>
                 </tr>
@@ -38,7 +38,7 @@
                   <tr>
                     <td>{{ order.name | link_to: order.customer_url }}</td>
                     <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
-                    <td>{{ order.financial_status_label }}</td>
+                    <td class="hide-mobile">{{ order.financial_status_label }}</td>
                     <td>{{ order.fulfillment_status_label }}</td>
                     <td>{{ order.total_price | money }}</td>
                   </tr>
